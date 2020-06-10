@@ -1,0 +1,19 @@
+{
+  "name": "3d-roadmap",
+  "version": "1.0.0",
+  "description": "3d visualizer of web development roadmap",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeffreyclu/3d-roadmap.git"
+  },
+  "author": "team-rose-quartz",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeffreyclu/3d-roadmap/issues"
+  },
+  "homepage": "https://github.com/jeffreyclu/3d-roadmap#readme"
+}
