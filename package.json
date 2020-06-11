@@ -4,7 +4,10 @@
   "description": "3d visualizer of web development roadmap",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "env NODE_ENV=production node server/server.js",
+    "build": "env NODE_ENV=production webpack",
+    "dev": "env NODE_ENV=development webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
