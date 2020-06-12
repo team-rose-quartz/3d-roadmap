@@ -60,6 +60,8 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "react-three-fiber": "^4.2.8",
+    "three": "^0.117.1"
   }
 }
