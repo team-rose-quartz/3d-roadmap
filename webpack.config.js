@@ -14,9 +14,9 @@ module.exports = () => {
       path: path.resolve(__dirname, 'build'),
     },
     devServer: {
-      publicPath: '/client',
+      publicPath: '/build/',
       proxy: {},
-      // hot: true,
+      hot: true,
     },
     plugins: [
       new MiniCssExtractPlugin({
