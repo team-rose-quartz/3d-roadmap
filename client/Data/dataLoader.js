@@ -5,24 +5,24 @@ function GetSpecialistArray() {
   const specializationsModel = specializationNodes;
   // loop specializations
   for(let specialization of specializationsModel) {
-    if (specialization.hasOwnProperty("entryNodeId")) {
+    if (specialization.hasOwnProperty("orderedChildrenNodeIds")) {
         // convert children from linked list to array
-        specialization.technologies = GetTechnologyPathAsOrderedArray(specialization.entryNodeId);
+        specialization.children = GetTechnologyPathAsOrderedArray(specialization.orderedChildrenNodeIds);
+    } else {
+      specialization.children = [];
     }
   }
   console.log("specialization ",specializationsModel);
   return specializationsModel;
 }
 
-function GetTechnologyPathAsOrderedArray(startingNodeId){
-    let orderedArray = [];
-    let currentNodeId  = startingNodeId;
-    while (currentNodeId) {
-        let node = technologiesNodes[currentNodeId];
-        orderedArray.push(node);
-        currentNodeId = node.nextNodeId;
-    }
-    
+function GetTechnologyPathAsOrderedArray(orderedChildrenNodeIds){
+    let orderedArray = [];    
+    for(let nodeId of orderedChildrenNodeIds) {
+        let node = technologiesNodes[nodeId];
+        node.id = nodeId;
+        orderedArray.push(node);        
+    }    
     return orderedArray;
 }
 
