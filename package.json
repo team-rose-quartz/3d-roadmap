@@ -2,6 +2,10 @@
   "name": "3d-roadmap",
   "version": "1.0.0",
   "description": "3d visualizer of web development roadmap",
+  "engines": {
+    "npm": "5.7.1.",
+    "node": "9.5.0"
+  },
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
