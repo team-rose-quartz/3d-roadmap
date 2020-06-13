@@ -1,5 +1,5 @@
-[
-    {
+{
+  "11": {
         "id": 11,
         "name": "Internet",
         "Children": [
@@ -7,8 +7,8 @@
             {"name": "What is HTTP?", "type": "recommended" }
         ],
         "nextNodeId": 12
-    },
-      {
+        },
+  "12": {
         "id": 12,
         "name": "HTML",
         "Children": [
@@ -16,8 +16,8 @@
             {"name":  "Writing Semantic Html", "type": "orderNotStrict" }
         ],
         "nextNodeId": 13
-      },
-      {
+        },
+  "13":  {
         "id": 13,
         "name": "CSS",
         "Children": [
@@ -25,13 +25,13 @@
             { "name": "Making Layouts", "type": "recommended" }
         ],
         "nextNodeId": 14
-      },
-      {
+        },
+  "14": {
         "id": 14,
         "name": "Javascript",
         "Children": [
-      { "name": "Syntax and Basic Constructs", "type": "recommended" },
-      { "name": "Learn DOM Manipulation", "type": "recommended" }
-    ]
-  }
-]
+          { "name": "Syntax and Basic Constructs", "type": "recommended" },
+          { "name": "Learn DOM Manipulation", "type": "recommended" }
+          ]
+        }
+}
