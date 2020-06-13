@@ -1,0 +1,70 @@
+{
+  "11": {        
+        "name": "Internet",
+        "children": [
+            {"name": "How does the Internet work?", "type": "recommended" },
+            {"name": "What is HTTP?", "type": "recommended" }
+        ]        
+        },
+  "12": {        
+        "name": "HTML",
+        "children": [
+            {"name": "Learn the basics" , "type": "recommended" },
+            {"name":  "Writing Semantic Html", "type": "orderNotStrict" }
+        ]        
+        },
+  "13":  {
+        "id": 13,
+        "name": "CSS",
+        "children": [
+            { "name": "Learn the basics", "type": "recommended" },
+            { "name": "Making Layouts", "type": "recommended" }
+        ]        
+        },
+  "14": {        
+        "name": "Javascript",
+        "children": [
+          { "name": "Syntax and Basic Constructs", "type": "recommended" },
+          { "name": "Learn DOM Manipulation", "type": "recommended" }
+          ]
+        },        
+  "22": {              
+              "name": "Basic Fronted Knowledge",
+              "children": [
+                { "name": "HTML", "type": "recommended" },
+                { "name": "CSS", "type": "recommended" },
+                { "name": "JavaScript", "type": "recommended" }
+                ]
+      },
+  "23": {            
+            "name": "OS and General Knowledge",
+            "children": [
+              { "name": "Terminal Usage", "type": "recommended" },
+              { "name": "How OSs work in General", "type": "recommended" },
+              { "name": "Process Management", "type": "recommended" },
+              { "name": "Threads and Concurrency", "type": "recommended" }
+              ]
+    },    
+  "31": {            
+            "name": "Learning a Programming Language",
+            "children": [
+              { "name": "Python", "type": "alternative" },
+              { "name": "Ruby", "type": "alternative" },
+              { "name": "Node.js", "type": "alternative" },
+              { "name": "Go", "type": "recommended" }
+              ]
+    },       
+  "32": {            
+            "name": "Understand different OS Concepts",
+            "children": [
+              { "name": "Process Management", "type": "recommended" },
+              { "name": "Threads and Cocurrency", "type": "recommended" },
+              { "name": "Sockets", "type": "recommended" },
+              { "name": "POSIX Basics", "type": "recommended" },
+              { "name": "Networking Concepts", "type": "recommended" }
+              ]
+    },       
+  "33": {            
+            "name": "Learn about Managing Servers"
+      }
+}
