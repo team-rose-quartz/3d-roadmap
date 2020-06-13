@@ -4,7 +4,7 @@ import { Canvas, useFrame, useThree } from 'react-three-fiber';
 import MasterContainer from './components/MasterContainer.jsx';
 import { MapControls, OrbitControls } from 'drei';
 import GetSpecialistArray from './Data/dataLoader.js';
-import '../build/index.css';
+import "./components/styles.css";
 
 function Camera(props) {
   const ref = useRef();

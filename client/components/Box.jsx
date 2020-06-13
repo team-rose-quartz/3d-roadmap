@@ -1,7 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { HTML } from "drei";
 
-
 const Box = (props) => {
   // This reference will give us direct access to the mesh
   const mesh = useRef();
