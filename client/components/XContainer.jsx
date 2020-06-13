@@ -3,8 +3,6 @@ import Box from './Box.jsx';
 import YContainer from './YContainer.jsx';
 
 const XContainer = (props) => {
-  
-
   const { structure } = props;
   const boxArray = structure.map((item, index) => {
     const [active, setActive] = useState(false);
@@ -13,13 +11,15 @@ const XContainer = (props) => {
     const currentX = baseX + (boxSize * index * 2);
     return (
       <>
-        <Box 
+        <Box
           position={[currentX, 0, 0]}
-          boxSize={boxSize} boxColor="yellow"
+          boxSize={boxSize}
+          boxColor="yellow"
           onClick={(e) => setActive(!active)}
           active={active}
+          key={`X${index}`}
         />
-        { active && <YContainer structure={item.technologies} baseX={currentX} /> }
+        { active && <YContainer structure={item.children} baseX={currentX} key={`YContainer${index}`} /> }
       </>
     );
   });

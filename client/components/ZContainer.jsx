@@ -9,7 +9,12 @@ const ZContainer = (props) => {
     const currentZ = baseZ - (boxSize * index * 2);
     return (
       <>
-        <Box position={[baseX, baseY, currentZ]} boxSize={boxSize} boxColor='blue'/>
+        <Box 
+          position={[baseX, baseY, currentZ]}
+          boxSize={boxSize}
+          boxColor='blue'
+          key={`z${index}`}
+        />
       </>
     );
   });
