@@ -1,4 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { HTML } from "drei";
+import './styles.css';
 
 const Box = (props) => {
   // This reference will give us direct access to the mesh
@@ -6,7 +8,7 @@ const Box = (props) => {
 
   // Set up state for the hovered and active state
   const [hovered, setHover] = useState(false);
-  const { boxSize, boxColor, onClick, active } = props;
+  const { boxSize, boxColor, active, text } = props;
 
   return (
     <mesh
@@ -18,6 +20,11 @@ const Box = (props) => {
     >
       <boxBufferGeometry attach="geometry" args={[boxSize, boxSize, boxSize]} />
       <meshStandardMaterial attach="material" color={hovered ? 'red' : boxColor} />
+      <HTML scaleFactor={20}>
+        <div class="content">
+          {text}
+        </div>
+      </HTML>
     </mesh>
   );
 };

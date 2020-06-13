@@ -13,7 +13,8 @@ const ZContainer = (props) => {
           position={[baseX, baseY, currentZ]}
           boxSize={boxSize}
           boxColor='blue'
-          key={`z${index}`}
+          key={`Z${index}`}
+          text={item.name}
         />
       </>
     );

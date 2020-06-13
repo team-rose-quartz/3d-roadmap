@@ -17,6 +17,7 @@ const YContainer = (props) => {
           onClick={(e) => setActive(!active)}
           active={active}
           key={`Y${index}`}
+          text={item.name}
         />
         { active && <ZContainer structure={item.children} baseX={baseX} baseY={currentY} key={`ZContainer${index}`} />}
       </>
