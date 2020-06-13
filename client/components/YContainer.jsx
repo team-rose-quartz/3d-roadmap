@@ -17,7 +17,7 @@ const YContainer = (props) => {
           onClick={(e) => setActive(!active)}
           active={active}
         />
-        { active && <ZContainer structure={item.children} baseX={baseX} baseY={currentY} />}
+        { active && <ZContainer structure={item.Children} baseX={baseX} baseY={currentY} />}
       </>
     );
   });

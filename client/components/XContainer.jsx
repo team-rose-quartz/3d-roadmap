@@ -19,7 +19,7 @@ const XContainer = (props) => {
           onClick={(e) => setActive(!active)}
           active={active}
         />
-        { active && <YContainer structure={item.children} baseX={currentX} /> }
+        { active && <YContainer structure={item.technologies} baseX={currentX} /> }
       </>
     );
   });
