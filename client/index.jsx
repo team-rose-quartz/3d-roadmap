@@ -1,82 +1,18 @@
-import ReactDOM from 'react-dom'
-import React, { useRef, useState, useEffect } from 'react'
-import { Canvas, useFrame, useThree  } from 'react-three-fiber'
-import parentNodes from './components/Data/parents.json'
-
-
-function Box(props) {
-  // This reference will give us direct access to the mesh
-  const mesh = useRef()
-
-  // Set up state for the hovered and active state
-  const [hovered, setHover] = useState(false)
-  const [active, setActive] = useState(false)
-
-
-  // Rotate mesh every frame, this is outside of React without overhead
-  // useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01))
-
-  return (
-    <mesh
-      {...props }
-      ref={mesh}
-      scale={active ? [2, 2, 2] : [1, 1, 1]}
-      onClick={e => setActive(!active)}
-      onPointerOver={e => setHover(true)}
-      onPointerOut={e => setHover(false)}>
-      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-      <meshStandardMaterial attach="material" color={hovered ? 'red' : 'orange'} />
-    </mesh>
-  )
-}
-
-function Text(props) {
-    // This reference will give us direct access to the mesh
-    const mesh = useRef()
-  
-    // Set up state for the hovered and active state
-    const [hovered, setHover] = useState(false)
-    const [active, setActive] = useState(false)
-  
-  
-    // Rotate mesh every frame, this is outside of React without overhead
-    // useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01))
-  
-    return (
-      <mesh
-        {...props }
-        ref={mesh}
-        scale={active ? [2, 2, 2] : [1, 1, 1]}
-        onClick={e => setActive(!active)}
-        onPointerOver={e => setHover(true)}
-        onPointerOut={e => setHover(false)}>
-        <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-        <meshStandardMaterial attach="material" color={hovered ? 'red' : 'orange'} />
-      </mesh>
-    )
-  }
-
-function BoxContainer(props) {
-  const baseLeftPosition = 1.5;
-  let parentBoxes = parentNodes.map((item, index) => {      
-        return <Box position={[baseLeftPosition * (index - 1), 0, 0]} />
-  });
-  return (
-        <>
-            { parentBoxes }
-        </>
-    );
-}
+import ReactDOM from 'react-dom';
+import React, { useRef, useState, useEffect } from 'react';
+import { Canvas, useFrame, useThree } from 'react-three-fiber';
+import MasterContainer from './components/MasterContainer.jsx';
+import { MapControls, OrbitControls } from 'drei';
 
 function Camera(props) {
-    const ref = useRef()
-    const { setDefaultCamera } = useThree()
-    // Make the camera known to the system
-    useEffect(() => setDefaultCamera(ref.current), [])
-    // Update it every frame
-    useFrame(() => ref.current.updateMatrixWorld())
-    return <perspectiveCamera ref={ref} {...props} />
-  }
+  const ref = useRef();
+  const { setDefaultCamera } = useThree();
+  // Make the camera known to the system
+  useEffect(() => setDefaultCamera(ref.current), []);
+  // Update it every frame
+  useFrame(() => ref.current.updateMatrixWorld());
+  return <perspectiveCamera ref={ref} {...props} />;
+}
 
 
 ReactDOM.render(
@@ -84,7 +20,9 @@ ReactDOM.render(
     <Camera position={[0, 0, 10]} />
     <ambientLight />
     <pointLight position={[0, 0, 5]} />
-    <BoxContainer />
+    <MasterContainer />
+    <MapControls />
+    <OrbitControls />
   </Canvas>,
-  document.getElementById('root')
-)
+  document.getElementById('root'),
+);
