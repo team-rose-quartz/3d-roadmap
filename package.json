@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jeffreyclu/3d-roadmap.git"
+    "url": "git+https://github.com/dejwakh/3d-roadmap.git"
   },
   "author": "team-rose-quartz",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jeffreyclu/3d-roadmap/issues"
+    "url": "https://github.com/dejwakh/3d-roadmap/issues"
   },
-  "homepage": "https://github.com/jeffreyclu/3d-roadmap#readme",
+  "homepage": "https://github.com/dejwakh/3d-roadmap#readme",
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
