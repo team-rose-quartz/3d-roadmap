@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { HTML } from "drei";
-import './styles.css';
+
 
 const Box = (props) => {
   // This reference will give us direct access to the mesh
