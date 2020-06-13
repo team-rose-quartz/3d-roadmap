@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "dotenv": "^8.2.0",
+    "drei": "0.0.60",
     "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
