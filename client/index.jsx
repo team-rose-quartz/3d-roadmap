@@ -1,7 +1,7 @@
 import ReactDOM from 'react-dom'
 import React, { useRef, useState, useEffect } from 'react'
 import { Canvas, useFrame, useThree  } from 'react-three-fiber'
-import parentNodes from './components/Data/parents.json'
+import GetSpecialistArray from './Data/dataLoader.js'
 
 
 function Box(props) {
@@ -58,7 +58,7 @@ function Text(props) {
 
 function BoxContainer(props) {
   const baseLeftPosition = 1.5;
-  let parentBoxes = parentNodes.map((item, index) => {      
+  let parentBoxes = GetSpecialistArray().map((item, index) => {      
         return <Box position={[baseLeftPosition * (index - 1), 0, 0]} />
   });
   return (
