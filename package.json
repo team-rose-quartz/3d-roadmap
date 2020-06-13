@@ -5,20 +5,20 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "env NODE_ENV=production node server/server.js",
+    "start": "node server/server.js",
     "build": "env NODE_ENV=production webpack",
     "dev": "env NODE_ENV=development webpack-dev-server --open"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jeffreyclu/3d-roadmap.git"
+    "url": "git+https://github.com/dejwakh/3d-roadmap.git"
   },
   "author": "team-rose-quartz",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jeffreyclu/3d-roadmap/issues"
+    "url": "https://github.com/dejwakh/3d-roadmap/issues"
   },
-  "homepage": "https://github.com/jeffreyclu/3d-roadmap#readme",
+  "homepage": "https://github.com/dejwakh/3d-roadmap#readme",
   "devDependencies": {
     "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.10.2",
