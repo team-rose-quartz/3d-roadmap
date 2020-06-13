@@ -3,31 +3,225 @@
         "name": "Internet",
         "children": [
             {"name": "How does the Internet work?", "type": "recommended" },
-            {"name": "What is HTTP?", "type": "recommended" }
+            {"name": "What is HTTP?", "type": "recommended" },
+            {"name": "Browsers and how they work?", "type": "recommended" },
+            {"name": "DNS and how it works?", "type": "recommended" },
+            {"name": "What is Domain Name?", "type": "recommended" },
+            {"name": "What is hosting?", "type": "recommended" }
         ]        
         },
   "12": {        
         "name": "HTML",
         "children": [
             {"name": "Learn the basics" , "type": "recommended" },
-            {"name":  "Writing Semantic Html", "type": "orderNotStrict" }
+            {"name":  "Writing Semantic Html", "type": "orderNotStrict" },
+            {"name": "Forms and Validations" , "type": "recommended" },
+            {"name": "Conventions and Best Practices" , "type": "recommended" },
+            {"name":  "Accessibility", "type": "orderNotStrict" },
+            {"name":  "SEO Basics", "type": "orderNotStrict" }            
         ]        
         },
-  "13":  {
-        "id": 13,
+  "13":  {        
         "name": "CSS",
         "children": [
-            { "name": "Learn the basics", "type": "recommended" },
-            { "name": "Making Layouts", "type": "recommended" }
+          {"name": "Learn the basics" , "type": "recommended" },
+          {"name": "Making Layouts" , "type": "recommended" },
+          {"name": "Responsive design and Media Queries" , "type": "recommended" }
         ]        
         },
   "14": {        
         "name": "Javascript",
         "children": [
           { "name": "Syntax and Basic Constructs", "type": "recommended" },
-          { "name": "Learn DOM Manipulation", "type": "recommended" }
+          { "name": "Learn DOM Manipulation", "type": "recommended" },
+          { "name": "Learn Fetch API / Ajax (XHR)", "type": "recommended" },
+          { "name": "ES6+ and modular Javascript", "type": "recommended" },
+          { "name": "Understand the concepts Hosting, Event Bubbling, Scope, Prototype, Shadow DOM, stric,", "type": "recommended" }          
           ]
-        },        
+        },
+  "15": {        
+          "name": "Version Control Systems",
+          "description": "What are they and why you should use one",
+          "children": [
+                { "name": "Repo hosting service" },
+                { "name": "Basic Usage of Git" }                
+                ]
+              }, 
+  "16": {        
+           "name": "Web Security Knowledge",           
+           "children": [
+                 { "name": "HTTPS", "type": "orderNotStrict"  },
+                 { "name": "Content Security Policy", "type": "orderNotStrict"  },              
+                 { "name": "CORS", "type": "orderNotStrict"  },
+                 { "name": "OWASP Security Risks", "type": "orderNotStrict"  }
+             ]
+        }, 
+  "17": {        
+           "name": "Package Managers",           
+           "children": [
+                 { "name": "npm", "type": "recommended" },
+                 { "name": "yarn", "type": "recommended" }                 
+             ]
+        }, 
+  "18": {        
+           "name": "CSS Architecture",
+           "descriptions": "with modern frameworks and CSS-in-JS you don't have to worry about these anymore but still it would be a good idea to get familiarized with BEM atleast",
+           "children": [
+                 { "name": "BEM", "type": "orderNotStrict" },
+                 { "name": "yarn", "type": "notRecommended" }                 
+             ]
+        }, 
+  "19": {        
+           "name": "CSS Preprocessors",
+           "descriptions": "with modern frameworks there has been more push towards CSS-in-JS as you may not need these but still a good idea to familiarize yourself",
+           "children": [
+                 { "name": "Sass", "type": "orderNotStrict" },
+                 { "name": "PostCSS", "type": "orderNotStrict"  },
+                 { "name": "Less", "type": "notRecommended" }
+             ]
+        },     
+  "111": {        
+           "name": "Build Tools",           
+           "children": [
+                 { "name": "Task Runners" },
+                 { "name": "Linters and Formatters" },
+                 { "name": "Module Bundlers" }
+             ]
+        },            
+  "112": {        
+          "name": "Pick a Framework",           
+          "children": [
+                { "name": "React.js", "type": "recommended"  },
+                { "name": "Angular", "type": "alternative" },
+                { "name": "Vue.js", "type": "alternative"  }
+            ]
+       }, 
+   "113": {        
+          "name": "Modern CSS",           
+          "children": [
+                { "name": "Styled Component", "type": "recommended"  },
+                { "name": "CSS Module", "type": "recommended" },
+                { "name": "Style JSX", "type": "alternative"  },
+                { "name": "Emotion", "type": "alternative" },
+                { "name": "Radium", "type": "notRecommended" },
+                { "name": "Glamorou", "type": "notRecommended" }
+            ]
+       },                                                       
+  "114": {        
+        "name": "Web Component",           
+        "children": [
+              { "name": "HTML Templates", "type": "orderNotStrict"  },
+              { "name": "Custom Elements", "type": "orderNotStrict" },
+              { "name": "Shadow DOM", "type": "orderNotStrict"  }
+          ]
+     },                                                              
+  "115": {        
+           "name": "CSS Frameworks",           
+           "children": [
+                 { "name": "Reactstrap", "type": "recommended"  },
+                 { "name": "Material UI", "type": "recommended" },
+                 { "name": "Tailwind CSS", "type": "alternative"  },
+                 { "name": "Chakra UI", "type": "alternative" },
+                 { "name": "Bootstrap", "type": "recommended" },
+                 { "name": "Materialize CSS", "type": "alternative" },
+                 { "name": "Bulma", "type": "alternative" }
+             ]
+        },                                                                      
+  "116": {        
+            "name": "Testing your Apps", 
+            "description": "Learn the difference between Unit, Integration, and Functional tests and learn how to write them with the tools listed on the lest",
+            "children": [
+                       { "name": "Jest", "type": "recommended"  },
+                       { "name": "react-testing-library", "type": "recommended" },
+                       { "name": "Cypress", "type": "recommended"  },
+                       { "name": "Enzyme", "type": "recommended" },
+                       { "name": "Mocha", "type": "notRecommended" },
+                       { "name": "Chai", "type": "notRecommended" },
+                       { "name": "Ava", "type": "notRecommended" },
+                       { "name": "Jasmine", "type": "notRecommended" }
+                   ]
+              },  
+"117": {        
+           "name": "Type Checkers",
+           "type": "orderNotStrict",
+           "children": [
+                      { "name": "TypeScript", "type": "recommended"  },
+                      { "name": "Flow", "type": "notRecommended" }                      
+                   ]
+              },
+"118": {        
+                "name": "Progress Web Apps",  
+                "type": "orderNotStrict",               
+                "children": [
+                           { "name": "Storage", "type": "orderNotStrict"  },
+                           { "name": "Web Sockets", "type": "orderNotStrict" },
+                           { "name": "Service Workers", "type": "orderNotStrict"  },
+                           { "name": "Location", "type": "orderNotStrict" },
+                           { "name": "Notifications", "type": "orderNotStrict" },
+                           { "name": "Device Orientation", "type": "orderNotStrict" },
+                           { "name": "Payments", "type": "orderNotStrict" },
+                           { "name": "PRPL Pattern", "type": "orderNotStrict" },
+                           { "name": "RAIL Model", "type": "orderNotStrict" },
+                           { "name": "Performance Metrics", "type": "orderNotStrict" },
+                           { "name": "Using Lighthouse", "type": "orderNotStrict" },
+                           { "name": "Using DevTools", "type": "orderNotStrict" }
+                       ]
+                  }, 
+"119": {        
+                    "name": "Server Side Rendering (SSR)", 
+                    "type": "orderNotStrict",          
+                    "children": [
+                          { "name": "React.js", "type": "recommended"  },
+                          { "name": "Angular", "type": "alternative" },
+                          { "name": "Vue.js", "type": "alternative"  }
+                      ]
+                 }, 
+"120": {        
+                  "name": "GraphQL",  
+                  "type": "orderNotStrict",         
+                  "children": [
+                        { "name": "Apollo", "type": "recommended"  },
+                        { "name": "Relay Modern", "type": "alternative" }                        
+                    ]
+               },   
+"121": {        
+                "name": "Static Site Generators",  
+                "type": "orderNotStrict",         
+                "children": [
+                      { "name": "Next.js", "type": "recommended"  },
+                      { "name": "GatsbyJS", "type": "recommended" },
+                      { "name": "Nuxt.js", "type": "alternative"  },
+                      { "name": "Vuepress", "type": "alternative"  },
+                      { "name": "Jekyll", "type": "alternative"  },
+                      { "name": "Hugo", "type": "alternative"  },
+                      { "name": "Gridsome", "type": "alternative"  }                      
+                  ]
+             },   
+"122": {        
+              "name": "Mobile Applications",   
+              "type": "orderNotStrict",        
+              "children": [
+                    { "name": "React Native", "type": "recommended"  },
+                    { "name": "NativeScript", "type": "alternative" },
+                    { "name": "Flutter", "type": "alternative"  },
+                    { "name": "Ionic", "type": "alternative"  }                     
+                ]
+           }, 
+"123": {        
+            "name": "Desk Applications",   
+            "type": "orderNotStrict",        
+            "children": [
+                  { "name": "Eletron", "type": "recommended"  },
+                  { "name": "Carlo", "type": "notRecommended" },
+                  { "name": "Proton Native", "type": "notRecommended"  }            
+              ]
+         },  
+"124": {        
+          "name": "Web Assembly",   
+          "type": "orderNotStrict",        
+          "children": []
+       },            
+
   "22": {              
               "name": "Basic Fronted Knowledge",
               "children": [
