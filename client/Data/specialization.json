@@ -1,0 +1,15 @@
+[
+    {
+        "id": 1,
+        "name": "Front-end",
+        "entryNodeId": 11
+      },
+      {
+        "id": 2,
+        "name": "Back-end"
+      },
+      {
+        "id": 3,
+        "name": "Dev-Ops"
+      }
+]
