@@ -1,16 +1,66 @@
 import ReactDOM from 'react-dom';
-import React from 'react';
-import { Canvas } from 'react-three-fiber';
-import { MapControls } from 'drei';
+import React, { useRef } from 'react';
+import { Canvas, useFrame, useThree } from 'react-three-fiber';
+import { MapControls, OrbitControls } from 'drei';
+import useEventListener from '@use-it/event-listener';
 import './components/styles.css';
 import MasterContainer from './components/MasterContainer.jsx';
 
-ReactDOM.render(
-  <Canvas colorManagement camera={{ position: [0, 0, 10] }}>
+// const ZoomControls = (props) => {
+//   useFrame(({ clock, camera }) => camera.updateProjectionMatrix(camera.position.z = 50 + Math.sin(clock.getElapsedTime()) * 30));
+//   return null;
+// };
+
+const ManualControls = () => {
+  const { camera } = useThree();
+  const keyPresses = {};
+  const handleKeyDown = (e) => {
+    console.log(camera.rotation)
+    console.log(e.key)
+    if (!keyPresses[e.key]) {
+      keyPresses[e.key] = new Date().getTime();
+    }
+  };
+  const handleKeyUp = (e) => {
+    delete keyPresses[e.key];
+  };
+  useEventListener('keydown', handleKeyDown);
+  useEventListener('keyup', handleKeyUp);
+  useFrame(() => {
+    // move camera according to key pressed
+    Object.entries(keyPresses).forEach((e) => {
+      const [key, start] = e;
+
+      switch (key) {
+        case 'w': camera.position.y += 0.1; break;
+        case 's': camera.position.y -= 0.1; break;
+        case 'a': camera.position.x -= 0.1; break;
+        case 'd': camera.position.x += 0.1; break;
+        case 'q': camera.rotateY(0.01); break;
+        case 'e': camera.rotateY(-0.01); break;
+        case 'Escape': camera.position.y = 0; break;
+        default:
+      }
+    });
+  });
+  return null;
+};
+
+const CreateCanvas = () => {
+  return (
+    <Canvas colorManagement camera={{ position: [0, 0, 10] }}>
     <ambientLight />
     <pointLight position={[0, 0, 5]} />
     <MasterContainer />
-    <MapControls />
-  </Canvas>,
+    {/* <MapControls /> */}
+    {/* <OrbitControls enableRotate={false} /> */}
+    {/* <ZoomControls /> */}
+    <ManualControls />
+  </Canvas>
+  )
+}
+
+ReactDOM.render(
+  <CreateCanvas />,
   document.getElementById('root'),
 );
