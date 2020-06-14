@@ -10,7 +10,7 @@ const XContainer = (props) => {
     const boxSize = 3;
     const currentX = baseX + (boxSize * index * 2);
     return (
-      <>
+      <React.Fragment key={`XFragment${index}`}>
         <Box
           position={[currentX, 0, 0]}
           boxSize={boxSize}
@@ -21,7 +21,7 @@ const XContainer = (props) => {
           text={item.name}
         />
         { active && <YContainer structure={item.children} baseX={currentX} key={`YContainer${index}`} /> }
-      </>
+      </React.Fragment>
     );
   });
   return (
