@@ -6,7 +6,7 @@ module.exports = () => {
   return {
     mode: process.env.NODE_ENV,
     entry: {
-      index: './client/index.jsx',
+      index: './client/index.js',
     },
     output: {
       publicPath: '/build/',
@@ -33,6 +33,12 @@ module.exports = () => {
             options: {
               presets: ['@babel/preset-env', '@babel/preset-react'],
             },
+          },
+        },
+        {
+          test: /\.(jpg|png|jpeg)$/,
+          use: {
+            loader: 'url-loader',
           },
         },
         {
