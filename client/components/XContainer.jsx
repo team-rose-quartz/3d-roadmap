@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Canvas, useFrame, useThree } from 'react-three-fiber';
 import Box from './Box.jsx';
 import YContainer from './YContainer.jsx';
+import { useTransition } from '@react-spring/three';
 
 const XContainer = (props) => {
   const { structure } = props;
@@ -24,6 +26,7 @@ const XContainer = (props) => {
       </React.Fragment>
     );
   });
+  
   return (
     <>
       {boxArray}

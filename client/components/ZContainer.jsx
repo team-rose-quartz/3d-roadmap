@@ -14,6 +14,7 @@ const ZContainer = (props) => {
           position={[baseX, baseY, currentZ]}
           boxSize={boxSize}
           boxColor='blue'
+          onClick={(e) => setActive(!active)}d
           active={active}
           key={`Z${index}`}
           text={item.name}

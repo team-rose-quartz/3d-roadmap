@@ -1,7 +1,7 @@
 import React, { useRef, useState, useEffect } from 'react';
-import { HTML } from "drei";
-import { useSpring } from '@react-spring/core';
-import { a } from '@react-spring/three';
+import { HTML } from 'drei';
+import { useSpring, useTransition, a } from '@react-spring/three';
+import { useFrame } from 'react-three-fiber';
 
 const Box = (props) => {
   // This reference will give us direct access to the mesh
@@ -9,7 +9,11 @@ const Box = (props) => {
 
   // Set up state for the hovered and active state
   const [hovered, setHover] = useState(false);
-  const { boxSize, boxColor, active, text } = props;
+
+  // deconstruct props  
+  const {
+    boxSize, boxColor, active, text,
+  } = props;
 
   // define the spring animation
   const { spring } = useSpring({
@@ -18,23 +22,24 @@ const Box = (props) => {
       mass: 5, tension: 400, friction: 50, precision: 0.0001,
     },
   });
-  const scale = spring.to([0, 1, 0], [1, 1.25, 0]);
-  const rotation = spring.to([0, 1, 0], [0, Math.PI, 0]);
+  const scale = spring.to([0, 1], [1, 1.25])
+  const rotation = spring.to([0, 1], [0, Math.PI]);
+  const opacity = spring.to([0, 1], [0.2, 1]);
+  const color = spring.to([0, 1], ['#6246ea', '#e45858']);
 
   return (
     <a.mesh
       {...props}
       ref={mesh}
-      // scale={active ? [1.25, 1.25, 1.25] : [1, 1, 1]}
+      scale-x={scale}
+      scale-z={scale}
       onPointerOver={(e) => setHover(true)}
       onPointerOut={(e) => setHover(false)}
       rotation-y={rotation}
-      // scale-x={scale}
-      // scale-z={scale}
     >
       <boxBufferGeometry attach="geometry" args={[boxSize, boxSize, boxSize]} />
-      <meshStandardMaterial attach="material" color={hovered ? 'red' : boxColor} />
-      <HTML scaleFactor={20}>
+      <a.meshPhongMaterial attach="material" color={color} opacity={opacity} transparent />
+      <HTML scaleFactor={20} opacity={0.5}>
         <div className="content">
           {text}
         </div>
