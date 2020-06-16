@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
-import React, { useRef } from 'react';
-import { Canvas, useFrame, useThree } from 'react-three-fiber';
+import React from 'react';
+import { Canvas, useFrame, useThree, extend } from 'react-three-fiber';
 import { MapControls, OrbitControls } from 'drei';
 import useEventListener from '@use-it/event-listener';
 import './components/styles.css';
@@ -15,8 +15,8 @@ const ManualControls = () => {
   const { camera } = useThree();
   const keyPresses = {};
   const handleKeyDown = (e) => {
-    console.log(camera.rotation)
-    console.log(e.key)
+    // console.log(camera.rotation);
+    // console.log(e.key);
     if (!keyPresses[e.key]) {
       keyPresses[e.key] = new Date().getTime();
     }
@@ -36,9 +36,11 @@ const ManualControls = () => {
         case 's': camera.position.y -= 0.1; break;
         case 'a': camera.position.x -= 0.1; break;
         case 'd': camera.position.x += 0.1; break;
-        case 'q': camera.rotateY(0.01); break;
-        case 'e': camera.rotateY(-0.01); break;
-        case 'Escape': camera.position.y = 0; break;
+        case 'q': camera.position.z += 0.1; break;
+        case 'e': camera.position.z -= 0.1; break;
+        // case 'q': camera.rotateY(0.01); break;
+        // case 'e': camera.rotateY(-0.01); break;
+        case 'Escape': camera.position.y = 0; camera.position.x = 0; camera.position.z = 5; break;
         default:
       }
     });
@@ -46,21 +48,24 @@ const ManualControls = () => {
   return null;
 };
 
-const CreateCanvas = () => {
-  return (
-    <Canvas colorManagement camera={{ position: [0, 0, 10] }}>
+const CreateCanvas = () => (
+  <Canvas colorManagement camera={{ position: [0, 0, 7] }}>
     <ambientLight />
-    <pointLight position={[0, 0, 5]} />
+    <pointLight position={[0, 0, 100]} />
     <MasterContainer />
-    {/* <MapControls /> */}
+    {/* <MapControls enableRotate={false} /> */}
     {/* <OrbitControls enableRotate={false} /> */}
     {/* <ZoomControls /> */}
     <ManualControls />
   </Canvas>
-  )
-}
+);
+
+const HUD = () => (<div><h1>hello jeffrey</h1></div>);
 
 ReactDOM.render(
-  <CreateCanvas />,
+  <>
+    <CreateCanvas />
+    <HUD />
+  </>,
   document.getElementById('root'),
 );
