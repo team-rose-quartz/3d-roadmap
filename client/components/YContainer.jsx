@@ -10,7 +10,7 @@ const YContainer = (props) => {
     const boxSize = 2;
     const currentY = baseY - (boxSize * index * 2);
     return (
-      <>
+      <React.Fragment key={`YFragment${index}`}>
         <Box
           position={[baseX, currentY, 0]} 
           boxSize={boxSize} boxColor='green'
@@ -20,7 +20,7 @@ const YContainer = (props) => {
           text={item.name}
         />
         { active && <ZContainer structure={item.children} baseX={baseX} baseY={currentY} key={`ZContainer${index}`} />}
-      </>
+      </React.Fragment>
     );
   });
   return (

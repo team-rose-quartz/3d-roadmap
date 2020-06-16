@@ -1,6 +1,8 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { Canvas, useFrame, useThree } from 'react-three-fiber';
 import Box from './Box.jsx';
 import YContainer from './YContainer.jsx';
+import { useTransition } from '@react-spring/three';
 
 const XContainer = (props) => {
   const { structure } = props;
@@ -10,7 +12,7 @@ const XContainer = (props) => {
     const boxSize = 3;
     const currentX = baseX + (boxSize * index * 2);
     return (
-      <>
+      <React.Fragment key={`XFragment${index}`}>
         <Box
           position={[currentX, 0, 0]}
           boxSize={boxSize}
@@ -21,9 +23,10 @@ const XContainer = (props) => {
           text={item.name}
         />
         { active && <YContainer structure={item.children} baseX={currentX} key={`YContainer${index}`} /> }
-      </>
+      </React.Fragment>
     );
   });
+  
   return (
     <>
       {boxArray}
