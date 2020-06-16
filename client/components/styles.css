@@ -8,6 +8,13 @@ body {
   color: white;
 }
 
+h1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 50vw;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
@@ -16,6 +23,7 @@ body {
 
 canvas {
   position: absolute;
+  z-index: -1;
 }
 
 .loading {
@@ -27,8 +35,9 @@ canvas {
 
 .content {
   padding-top: 10px;
-  transform: translate3d(200%, 0, 0);
+  transform: translate3d(100px, -100px, 0);
   text-align: right;
+  background: black;
 }
 
 .content::after {
