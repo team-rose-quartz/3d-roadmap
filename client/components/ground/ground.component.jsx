@@ -1,6 +1,5 @@
 import React, { useRef } from 'react'
 import { useFrame } from 'react-three-fiber'
-import Car from '../car/car.component.jsx'
 
 
 const Ground = () => {     

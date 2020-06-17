@@ -7,9 +7,11 @@ import React, { useRef } from 'react'
 import { useLoader } from 'react-three-fiber'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 
+import model from './pine-tree.gltf'
+
 export default function Model(props) {
   const group = useRef()
-  const { nodes, materials } = useLoader(GLTFLoader, './components/pine-tree/pine-tree.gltf')
+  const { nodes, materials } = useLoader(GLTFLoader, model)
   return (
     <group ref={group} {...props} dispose={null}>
       <group position={[-0.01, 0.66, -0.01]} scale={[0.84, 0.84, 0.84]}>
