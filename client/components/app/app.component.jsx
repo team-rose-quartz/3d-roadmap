@@ -24,8 +24,7 @@ const App = () => {
     {/* <color attach="background" args={["#012"]} /> */}
         <FlipButton flip={flip}/>
 
-        <Stars radius={300}/>
-        {/* <Sky /> */}
+        {flipped ? <Stars radius={300}/> : <Sky />}
         <Suspense fallback={null}>
         <ambientLight />
         <pointLight position={[0, 100, 100]} />
