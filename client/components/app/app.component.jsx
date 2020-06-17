@@ -4,6 +4,7 @@ import { Stats, Stars, Sky, HTML, MapControls } from 'drei'
 
 import FlipButton from '../flip-button/flip-button.component.jsx'
 import Ground from '../ground/ground.component.jsx'
+import FrontEndCity from '../front-end/front-end-city.component.jsx';
 
 import './app.style.css'
 
@@ -31,6 +32,7 @@ const App = () => {
         <MapControls />
         <Stats />
         <Ground />
+        <FrontEndCity />
 
         </Suspense>
     </Canvas>

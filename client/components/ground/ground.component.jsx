@@ -12,9 +12,8 @@ const Ground = () => {
         <group ref={group}>
             <mesh position={[0,-5,-96.5]}>
                 <cylinderBufferGeometry attach="geometry" args={[100,100,10,100]} />
-                <meshStandardMaterial attach="material" color={'#2e4482'}/>
+                <meshStandardMaterial attach="material" color={'#607049'}/>
             </mesh>
-            <Car position={[-1,0.205,1]} rotation={[0,Math.PI,0]} color={'red'}/>
         </group>
     )
 }

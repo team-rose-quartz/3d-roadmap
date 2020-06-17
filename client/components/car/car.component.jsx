@@ -26,7 +26,7 @@ export default function Model(props) {
         <group position={[0, -0.1, -0.04]}>
           <group position={[0, 0, -0.09]}>
             <group position={[0.12, -0.03, -0.1]} rotation={[0, 0, 0]}>
-              <mesh material={nodes.Wheel.material} geometry={nodes.Wheel.geometry} material-color={'green'} />
+              <mesh material={nodes.Wheel.material} geometry={nodes.Wheel.geometry}  />
               <mesh material={materials.Black} geometry={nodes['Wheel-Black'].geometry} />
               <mesh material={materials.White} geometry={nodes['Wheel-White'].geometry} />
             </group>
