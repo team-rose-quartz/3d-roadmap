@@ -4,11 +4,7 @@ import { HTML } from 'drei'
 import './flip-button.style.css'
 
 
-const FlipButton = ({flip}) => (
-    <HTML>
-        <button className={'flip-button'} onClick={flip}>Flip</button>
-    </HTML>
-)
+const FlipButton = ({flip}) => <button className={'flip-button'} onClick={flip}>Flip</button>
 
 
 export default FlipButton

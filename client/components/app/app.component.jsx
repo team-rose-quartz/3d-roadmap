@@ -1,9 +1,6 @@
 import React, { Suspense, useState } from 'react';
-import { Canvas, useThree, useFrame } from 'react-three-fiber';
-import useEventListener from '@use-it/event-listener';
-import {
-  Stats, Stars, Sky, HTML, MapControls,
-} from 'drei';
+import { Canvas } from 'react-three-fiber';
+import { Stats, Stars, Sky, HTML, MapControls } from 'drei';
 
 
 import FlipButton from '../flip-button/flip-button.component.jsx';
@@ -12,38 +9,6 @@ import FrontEndCity from '../front-end/front-end-city.component.jsx';
 
 import './app.style.css';
 
-const ManualControls = () => {
-  const { camera } = useThree();
-  const keyPresses = {};
-  const handleKeyDown = (e) => {
-    // console.log(camera.rotation);
-    // console.log(e.key);
-    if (!keyPresses[e.key]) {
-      keyPresses[e.key] = new Date().getTime();
-    }
-  };
-  const handleKeyUp = (e) => {
-    delete keyPresses[e.key];
-  };
-  useEventListener('keydown', handleKeyDown);
-  useEventListener('keyup', handleKeyUp);
-  useFrame(() => {
-    // move camera according to key pressed
-    Object.entries(keyPresses).forEach((e) => {
-      const [key, start] = e;
-      console.log(camera.position)
-
-      switch (key) {
-        case 'w': camera.position.z += 0.1; break;
-        case 's': camera.position.z -= 0.1; break;
-        case 'Escape': camera.position.y = 0; camera.position.x = 0; camera.position.z = 5; break;
-        default:
-      }
-    });
-  });
-  return null;
-};
-
 const App = () => {
   const [flipped, setFlipped] = useState(false);
 
@@ -51,27 +16,32 @@ const App = () => {
     setFlipped(!flipped);
   };
 
+  const fogColor = flipped ? 'black' : '#dee5e7';
+
   return (
-    <Canvas
-      gl={{ logarithmicDepthBuffer: true, alpha: false }}
-      shadowMap
-      camera={{ position: [0, 0.5, 2] }}
-    >
-      {/* <color attach="background" args={["#012"]} /> */}
+    <>
       <FlipButton flip={flip} />
+      <Canvas
+        gl={{ logarithmicDepthBuffer: true, alpha: false }}
+        shadowMap
+        camera={{ position: [-2, 2, 3] }}
+      >
+        <fog attach="fog" args={[fogColor, 5, 15]} />
+        {/* <color attach="background" args={["#012"]} /> */}
+        
 
-      {flipped ? <Stars radius={300} /> : <Sky />}
-      <Suspense fallback={null}>
-        <ambientLight />
-        <pointLight position={[0, 100, 100]} />
-        {/* <MapControls /> */}
-        <ManualControls />
-        <Stats />
-        <Ground />
-        <FrontEndCity />
+        {flipped ? <Stars radius={300} /> : <Sky />}
+        <Suspense fallback={null}>
+          <ambientLight />
+          <pointLight position={[0, 100, 100]} />
+          {/* <MapControls /> */}
+          <Stats />
+          <Ground />
+          <FrontEndCity />
 
-      </Suspense>
-    </Canvas>
+        </Suspense>
+      </Canvas>
+    </>
   );
 };
 
