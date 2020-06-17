@@ -15,7 +15,6 @@ const FrontEndCity = () => {
             <PineTree position={[-.5,0,-6]}/>
             <PineTree position={[-.8,0,-5]}/>
             <PineTree position={[.5,0,-15]}/>
-
         </group>
     )
 }
