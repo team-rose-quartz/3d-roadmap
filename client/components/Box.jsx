@@ -1,6 +1,6 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { HTML } from 'drei';
-import { useSpring, useTransition, a } from '@react-spring/three';
+import { useSpring, useTransition, animated } from '@react-spring/three/index.cjs';
 import { useFrame } from 'react-three-fiber';
 
 const Box = (props) => {
@@ -28,7 +28,7 @@ const Box = (props) => {
   const color = spring.to([0, 1], ['#6246ea', '#e45858']);
 
   return (
-    <a.mesh
+    <animated.mesh
       {...props}
       ref={mesh}
       scale-x={scale}
@@ -38,13 +38,13 @@ const Box = (props) => {
       rotation-y={rotation}
     >
       <boxBufferGeometry attach="geometry" args={[boxSize, boxSize, boxSize]} />
-      <a.meshPhongMaterial attach="material" color={color} opacity={opacity} transparent />
+      <animated.meshPhongMaterial attach="material" color={color} opacity={opacity} transparent />
       <HTML scaleFactor={20} opacity={0.5}>
         <div className="content">
           {text}
         </div>
       </HTML>
-    </a.mesh>
+    </animated.mesh>
   );
 };
 
