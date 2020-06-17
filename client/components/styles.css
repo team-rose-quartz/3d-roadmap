@@ -15,6 +15,13 @@ h1 {
   margin-left: 50vw;
 }
 
+#login {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 50vw;
+}
+
 #root {
   width: 100vw;
   height: 100vh;
