@@ -6,7 +6,7 @@ module.exports = () => {
   return {
     mode: process.env.NODE_ENV,
     entry: {
-      index: './client/index.js',
+      index: './client/index.jsx',
     },
     output: {
       publicPath: '/build/',
@@ -26,7 +26,7 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
+          test: /\.(js[x]?$|.js)/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
@@ -36,10 +36,12 @@ module.exports = () => {
           },
         },
         {
-          test: /\.(jpg|png|jpeg)$/,
-          use: {
-            loader: 'url-loader',
-          },
+          test: /\.(gltf)$/,
+          use: [
+            {
+              loader: 'gltf-webpack-loader',
+            },
+          ],
         },
         {
           test: /\.css$/i,
