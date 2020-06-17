@@ -1,5 +1,5 @@
 import React, {Suspense, useState} from 'react';
-import { Canvas } from 'react-three-fiber';
+import { Canvas, useThree } from 'react-three-fiber';
 import { Stats, Stars, Sky, HTML, MapControls } from 'drei'
 
 import FlipButton from '../flip-button/flip-button.component.jsx'
@@ -8,6 +8,42 @@ import FrontEndCity from '../front-end/front-end-city.component.jsx';
 
 import './app.style.css'
 
+const ManualControls = () => {
+  const { camera } = useThree();
+  const keyPresses = {};
+  const handleKeyDown = (e) => {
+    // console.log(camera.rotation);
+    // console.log(e.key);
+    if (!keyPresses[e.key]) {
+      keyPresses[e.key] = new Date().getTime();
+    }
+  };
+  const handleKeyUp = (e) => {
+    delete keyPresses[e.key];
+  };
+  useEventListener('keydown', handleKeyDown);
+  useEventListener('keyup', handleKeyUp);
+  useFrame(() => {
+    // move camera according to key pressed
+    Object.entries(keyPresses).forEach((e) => {
+      const [key, start] = e;
+
+      switch (key) {
+        case 'w': camera.position.y += 0.1; break;
+        case 's': camera.position.y -= 0.1; break;
+        case 'a': camera.position.x -= 0.1; break;
+        case 'd': camera.position.x += 0.1; break;
+        case 'q': camera.position.z += 0.1; break;
+        case 'e': camera.position.z -= 0.1; break;
+        // case 'q': camera.rotateY(0.01); break;
+        // case 'e': camera.rotateY(-0.01); break;
+        case 'Escape': camera.position.y = 0; camera.position.x = 0; camera.position.z = 5; break;
+        default:
+      }
+    });
+  });
+  return null;
+};
 
 const App = () => {
   const [flipped, setFlipped] = useState(false)
@@ -29,6 +65,7 @@ const App = () => {
         <ambientLight />
         <pointLight position={[0, 100, 100]} />
         <MapControls />
+        <ManualControls />
         <Stats />
         <Ground />
         <FrontEndCity />
