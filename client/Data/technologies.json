@@ -222,7 +222,7 @@
           "children": []
        },            
 
-  "22": {              
+  "20": {              
               "name": "Basic Fronted Knowledge",
               "children": [
                 { "name": "HTML", "type": "recommended" },
@@ -230,7 +230,7 @@
                 { "name": "JavaScript", "type": "recommended" }
                 ]
       },
-  "23": {            
+  "21": {            
             "name": "OS and General Knowledge",
             "children": [
               { "name": "Terminal Usage", "type": "recommended" },
@@ -239,7 +239,7 @@
               { "name": "Threads and Concurrency", "type": "recommended" }
               ]
     },    
-  "31": {            
+  "22": {            
             "name": "Learning a Programming Language",
             "children": [
               { "name": "Python", "type": "alternative" },
@@ -247,18 +247,139 @@
               { "name": "Node.js", "type": "alternative" },
               { "name": "Go", "type": "recommended" }
               ]
-    },       
-  "32": {            
-            "name": "Understand different OS Concepts",
-            "children": [
-              { "name": "Process Management", "type": "recommended" },
-              { "name": "Threads and Cocurrency", "type": "recommended" },
-              { "name": "Sockets", "type": "recommended" },
-              { "name": "POSIX Basics", "type": "recommended" },
-              { "name": "Networking Concepts", "type": "recommended" }
-              ]
-    },       
-  "33": {            
-            "name": "Learn about Managing Servers"
+    },             
+  "23": {            
+                   
+      "name": "Relational Databases",
+      "children": [
+        { "name": "PostgreSQL", "type": "recommended" },
+        { "name": "MySql", "type": "alternative" },
+        { "name": "MariaDB", "type": "alternative" },
+        { "name": "MS SQL", "type": "alternative" },
+        { "name": "Oracle", "type": "alternative" }
+        ]
+      },       
+  "24": {            
+                       
+          "name": "More about Databases",
+          "children": [
+            { "name": "NoSQL Databases" },
+            { "name": "ORM", "type": "recommended" },
+            { "name": "ACID", "type": "recommended" },
+            { "name": "Transaction", "type": "recommended" },
+            { "name": "N+1 Problem", "type": "recommended" },
+            { "name": "Database Normalization", "type": "recommended" },
+            { "name": "Indexes and how they work", "type": "recommended" },
+            { "name": "Data Replication", "type": "orderNotStrict" },
+            { "name": "Sharding Strategies", "type": "orderNotStrict" },
+            { "name": "CAP Theorem", "type": "orderNotStrict" }
+            ]
+          },       
+      "25": {                                
+            "name": "Learn about APIs",
+                  "children": [
+                    { "name": "HATEOAS", "type": "orderNotStrict" },
+                    { "name": "Open API Spec and Swagger", "type": "orderNotStrict" },
+                    { "name": "Authentication", "type": "recommended" },
+                    { "name": "JSON APIs", "type": "recommended" },
+                    { "name": "SOAP", "type": "orderNotStrict" },
+                    { "name": "gRPC", "type": "recommended" }
+                    ]
+                  },       
+      "26": {                                
+                        "name": "Caching",
+                              "children": [
+                                { "name": "CDB", "type": "recommended" },
+                                { "name": "Server Side" },
+                                { "name": "Client Side", "type": "recommended" }
+                                ]
+                              },
+      "27": {                                
+            "name": "Testing",
+                  "children": [
+                    { "name": "Integration Testing", "type": "recommended" },
+                    { "name": "Unit Testing" },
+                    { "name": "Functional Testing", "type": "recommended" }
+                    ]
+                  },
+      "28": {                                
+                        "name": "CI / CD",
+                        "type": "recommended"                        
+            },
+      "29": {                                
+                  "name": "Design and Development Principles",
+                        "children": [
+                          { "name": "Architectural Patterns" },
+                          { "name": "GOF Design Patterns", "type": "orderNotStrict"  },
+                          { "name": "Domain Driven Design", "type": "orderNotStrict" },
+                          { "name": "Test Driven Development", "type": "orderNotStrict" },
+                          { "name": "SOLID", "type": "recommended" },
+                          { "name": "KISS", "type": "recommended" },
+                          { "name": "YAGNI", "type": "recommended" },
+                          { "name": "DRY", "type": "recommended" }
+                          ]
+                        },
+      "200": {                                
+                  "name": "Search Engines",
+                                          "children": [
+                                            { "name": "Elastisearch", "type": "recommended" },
+                                            { "name": "Solr", "type": "alternative"   }
+                                            ]
+                                          },
+      "201": {                                
+                  "name": "Message Brokers",
+                              "children": [
+                              { "name": "RabbitMQ", "type": "recommended" },
+                              { "name": "Kafka", "type": "alternative"   }
+                              ]
+            },
+      "202": {                                
+                  "name": "Containerization vs Virtualization",
+                        "children": [
+                                    { "name": "Docker", "type": "recommended" },
+                                    { "name": "rkt", "type": "notRecommended"   },
+                                    { "name": "LXC", "type": "notRecommended"   }
+                                    ]
+            },
+      "203": {                                
+                  "name": "GraphQL",
+                  "type": "orderNotStrict",
+                        "children": [
+                                    { "name": "Apollo", "type": "recommended" },
+                                    { "name": "Relay Modern", "type": "alternative"   }
+                                    ]
+            },
+      "204": {                                
+                  "name": "Graph Databases",
+                  "type": "orderNotStrict",
+                        "children": [
+                              { "name": "Neo4j", "type": "orderNotStrict" }                              
+                              ]
+      }, 
+      "205": {                                
+            "name": "WebSockets",
+            "type": "orderNotStrict"
+      },  
+      "206": {                                
+            "name": "Web Servers",
+            "type": "orderNotStrict",
+                  "children": [
+                        { "name": "Nginx", "type": "recommended" },
+                        { "name": "Apache", "type": "alternative" },
+                        { "name": "Caddy", "type": "alternative" },
+                        { "name": "Nginx", "type": "alternative" },
+                        { "name": "MS IIS", "type": "alternative" }
+                        ]
+      },
+      "207": {                                
+            "name": "Building for Scale",
+            "type": "recommended",
+            "description": "General topics that you should learn and care about for the sustainability of the product",
+                  "children": [
+                        { "name": "Migration Strategies", "type": "recommended" },
+                        { "name": "Horizontal vs Vertical Scaling", "type": "recommended" },
+                        { "name": "Building with Observability in mind", "type": "recommended" },
+                        { "name": "Understand the Diff." }
+                        ]
       }
 }
