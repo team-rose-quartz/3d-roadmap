@@ -24,7 +24,7 @@ const App = () => {
       <Canvas
         gl={{ logarithmicDepthBuffer: true, alpha: false }}
         shadowMap
-        camera={{ position: [-2, 2, 3] }}
+        camera={{ position: [-2, 2, 3], fov: 60, far: 20 }}
       >
         <fog attach="fog" args={[fogColor, 5, 15]} />
         {/* <color attach="background" args={["#012"]} /> */}
