@@ -1,10 +1,11 @@
 import ReactDOM from 'react-dom';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Canvas, useFrame, useThree, extend } from 'react-three-fiber';
 import { MapControls, OrbitControls } from 'drei';
 import useEventListener from '@use-it/event-listener';
 import './components/styles.css';
 import MasterContainer from './components/MasterContainer.jsx';
+import Login from './components/Login.jsx';
 
 // const ZoomControls = (props) => {
 //   useFrame(({ clock, camera }) => camera.updateProjectionMatrix(camera.position.z = 50 + Math.sin(clock.getElapsedTime()) * 30));
@@ -60,12 +61,10 @@ const CreateCanvas = () => (
   </Canvas>
 );
 
-const HUD = () => (<div><h1>hello jeffrey</h1></div>);
-
 ReactDOM.render(
   <>
     <CreateCanvas />
-    <HUD />
+    <Login />
   </>,
   document.getElementById('root'),
 );
