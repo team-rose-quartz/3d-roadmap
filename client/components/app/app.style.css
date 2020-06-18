@@ -42,3 +42,10 @@ body {
     background: white;
   }
   
+  #login {
+    position: absolute;
+    z-index: 1;
+    bottom: 5vh;
+    right: 5vw;
+  }
+  
