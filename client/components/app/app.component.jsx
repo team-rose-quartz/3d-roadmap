@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from 'react';
 import { Canvas } from 'react-three-fiber';
-import { Stats, Stars, Sky, HTML, MapControls } from 'drei';
+import { Stats, Stars, Sky, HTML } from 'drei';
 
 
 import FlipButton from '../flip-button/flip-button.component.jsx';
@@ -11,6 +11,7 @@ import './app.style.css';
 
 const App = () => {
   const [flipped, setFlipped] = useState(false);
+
 
   const flip = () => {
     setFlipped(!flipped);
@@ -34,7 +35,6 @@ const App = () => {
         <Suspense fallback={null}>
           <ambientLight />
           <pointLight position={[0, 100, 100]} />
-          {/* <MapControls /> */}
           <Stats />
           <Ground />
           <FrontEndCity />
