@@ -4,7 +4,7 @@ import { Canvas, useThree, useFrame } from 'react-three-fiber';
 import { HTML } from 'drei';
 
 import Road from '../road/road.component.jsx';
-import OfficeFloor from '../office-floor/office-floor.component.jsx';
+import OfficeGroup from '../office-group/office-group.component.jsx';
 import PineTree from '../pine-tree/pine-tree.component.jsx';
 import CarControls from '../car/CarControls.jsx';
 
@@ -39,11 +39,9 @@ const CameraControls = (props) => {
 };
 
 
-const FrontEndCity = () => {
+const City = () => {
   const [structure, setStructure] = useState([]);
-  console.log('between hooks');
   useEffect(() => {
-    console.log('use effect fired');
     setStructure(GetSpecialistArray());
   }, []);
   return (
@@ -51,7 +49,7 @@ const FrontEndCity = () => {
       {/* <Car position={[0, 0.205, 1]} rotation={[0, Math.PI, 0]} color="red" /> */}
       <CarControls />
       <Roads count={85} />
-      <Offices structure={structure} />
+      <OfficeGroup structure={structure} />
       <PineTree position={[0.5, 0, -2]} />
       <PineTree position={[-0.5, 0, -6]} />
       <PineTree position={[-0.8, 0, -5]} />
@@ -69,40 +67,4 @@ const Roads = ({ count }) => {
   return roads;
 };
 
-const Offices = ({ structure }) => {
-  console.log(structure);
-  const offices = (structure.length > 0)
-    ? structure[0].children.map((val, index) => (
-      <Office
-        key={index}
-        count={val.children.length}
-        floors={val.children}
-        text={val.name}
-        x={index % 2 ? 0.85 : -0.85}
-        z={index * -8}
-      />
-    ))
-    : null;
-  return offices;
-};
-
-
-const Office = ({ count, z, x, text, floors }) => {
-  const office = [];
-  for (let x = 0; x < count; x++) {
-    office.push(<OfficeFloor
-      key={x}
-      position={[0, x * 0.2, 0]}
-      floor={floors[x]}
-    />);
-  }
-  return (
-    <group position={[x, 0.15, z]} scale={[0.8, 1, 0.8]}>
-      <HTML>{text}</HTML>
-      {office}
-    </group>
-
-  );
-};
-
-export default FrontEndCity;
+export default City;
