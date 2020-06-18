@@ -1,11 +1,12 @@
 import React, { useRef } from 'react'
-import { useFrame } from 'react-three-fiber'
+import { Canvas, useThree, useFrame } from 'react-three-fiber';
 
 
 const Ground = () => {     
     const group = useRef()
-
-    useFrame(() => (group.current.rotation.z  += 0))
+    const { camera } = useThree()
+      useFrame(()=> console.log(camera.position))
+    // useFrame(() => (group.current.rotation.z  += 0))
 
     return (
         <group ref={group}>
