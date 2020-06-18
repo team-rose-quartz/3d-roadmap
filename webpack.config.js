@@ -36,7 +36,7 @@ module.exports = () => {
           },
         },
         {
-          test: /\.s[ac]ss$/i,
+          test: /\.css$/i,
           use: [
             // if we are not in production, fall back to 'style-loader'
             process.env.NODE_ENV === 'development'

@@ -1,90 +1,70 @@
-import ReactDOM from 'react-dom'
-import React, { useRef, useState, useEffect } from 'react'
-import { Canvas, useFrame, useThree  } from 'react-three-fiber'
-import parentNodes from './components/Data/parents.json'
+import ReactDOM from 'react-dom';
+import React, { useState, useEffect } from 'react';
+import { Canvas, useFrame, useThree, extend } from 'react-three-fiber';
+import { MapControls, OrbitControls } from 'drei';
+import useEventListener from '@use-it/event-listener';
+import './components/styles.css';
+import MasterContainer from './components/MasterContainer.jsx';
+import Login from './components/Login.jsx';
 
+// const ZoomControls = (props) => {
+//   useFrame(({ clock, camera }) => camera.updateProjectionMatrix(camera.position.z = 50 + Math.sin(clock.getElapsedTime()) * 30));
+//   return null;
+// };
 
-function Box(props) {
-  // This reference will give us direct access to the mesh
-  const mesh = useRef()
+const ManualControls = () => {
+  const { camera } = useThree();
+  const keyPresses = {};
+  const handleKeyDown = (e) => {
+    // console.log(camera.rotation);
+    // console.log(e.key);
+    if (!keyPresses[e.key]) {
+      keyPresses[e.key] = new Date().getTime();
+    }
+  };
+  const handleKeyUp = (e) => {
+    delete keyPresses[e.key];
+  };
+  useEventListener('keydown', handleKeyDown);
+  useEventListener('keyup', handleKeyUp);
+  useFrame(() => {
+    // move camera according to key pressed
+    Object.entries(keyPresses).forEach((e) => {
+      const [key, start] = e;
 
-  // Set up state for the hovered and active state
-  const [hovered, setHover] = useState(false)
-  const [active, setActive] = useState(false)
-
-
-  // Rotate mesh every frame, this is outside of React without overhead
-  // useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01))
-
-  return (
-    <mesh
-      {...props }
-      ref={mesh}
-      scale={active ? [2, 2, 2] : [1, 1, 1]}
-      onClick={e => setActive(!active)}
-      onPointerOver={e => setHover(true)}
-      onPointerOut={e => setHover(false)}>
-      <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-      <meshStandardMaterial attach="material" color={hovered ? 'red' : 'orange'} />
-    </mesh>
-  )
-}
-
-function Text(props) {
-    // This reference will give us direct access to the mesh
-    const mesh = useRef()
-  
-    // Set up state for the hovered and active state
-    const [hovered, setHover] = useState(false)
-    const [active, setActive] = useState(false)
-  
-  
-    // Rotate mesh every frame, this is outside of React without overhead
-    // useFrame(() => (mesh.current.rotation.x = mesh.current.rotation.y += 0.01))
-  
-    return (
-      <mesh
-        {...props }
-        ref={mesh}
-        scale={active ? [2, 2, 2] : [1, 1, 1]}
-        onClick={e => setActive(!active)}
-        onPointerOver={e => setHover(true)}
-        onPointerOut={e => setHover(false)}>
-        <boxBufferGeometry attach="geometry" args={[1, 1, 1]} />
-        <meshStandardMaterial attach="material" color={hovered ? 'red' : 'orange'} />
-      </mesh>
-    )
-  }
-
-function BoxContainer(props) {
-  const baseLeftPosition = 1.5;
-  let parentBoxes = parentNodes.map((item, index) => {      
-        return <Box position={[baseLeftPosition * (index - 1), 0, 0]} />
+      switch (key) {
+        case 'w': camera.position.y += 0.1; break;
+        case 's': camera.position.y -= 0.1; break;
+        case 'a': camera.position.x -= 0.1; break;
+        case 'd': camera.position.x += 0.1; break;
+        case 'q': camera.position.z += 0.1; break;
+        case 'e': camera.position.z -= 0.1; break;
+        // case 'q': camera.rotateY(0.01); break;
+        // case 'e': camera.rotateY(-0.01); break;
+        case 'Escape': camera.position.y = 0; camera.position.x = 0; camera.position.z = 5; break;
+        default:
+      }
+    });
   });
-  return (
-        <>
-            { parentBoxes }
-        </>
-    );
-}
+  return null;
+};
 
-function Camera(props) {
-    const ref = useRef()
-    const { setDefaultCamera } = useThree()
-    // Make the camera known to the system
-    useEffect(() => setDefaultCamera(ref.current), [])
-    // Update it every frame
-    useFrame(() => ref.current.updateMatrixWorld())
-    return <perspectiveCamera ref={ref} {...props} />
-  }
-
+const CreateCanvas = () => (
+  <Canvas colorManagement camera={{ position: [0, 0, 7] }}>
+    <ambientLight />
+    <pointLight position={[0, 0, 100]} />
+    <MasterContainer />
+    {/* <MapControls enableRotate={false} /> */}
+    {/* <OrbitControls enableRotate={false} /> */}
+    {/* <ZoomControls /> */}
+    <ManualControls />
+  </Canvas>
+);
 
 ReactDOM.render(
-  <Canvas colorManagement>
-    <Camera position={[0, 0, 10]} />
-    <ambientLight />
-    <pointLight position={[0, 0, 5]} />
-    <BoxContainer />
-  </Canvas>,
-  document.getElementById('root')
-)
+  <>
+    <CreateCanvas />
+    <Login />
+  </>,
+  document.getElementById('root'),
+);
