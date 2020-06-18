@@ -1,13 +1,13 @@
 import React, { useRef } from 'react';
 import useEventListener from '@use-it/event-listener';
 import { Canvas, useThree, useFrame } from 'react-three-fiber';
-import Car from '../car/car.component.jsx';
+
 import Road from '../road/road.component.jsx';
 import OfficeFloor from '../office-floor/office-floor.component.jsx';
 import PineTree from '../pine-tree/pine-tree.component.jsx';
 import CarControls from '../car/CarControls.jsx';
 
-const ManualControls = (props) => {
+const CameraControls = (props) => {
   const { camera } = useThree();
   const keyPresses = {};
   const handleKeyDown = (e) => {
@@ -24,7 +24,6 @@ const ManualControls = (props) => {
     // move camera according to key pressed
     Object.entries(keyPresses).forEach((e) => {
       const [key, start] = e;
-      console.log(camera.position);
       switch (key) {
         case 'w': camera.position.z -= 0.1; break;
         case 's': camera.position.z += 0.1; break;
@@ -48,7 +47,7 @@ const FrontEndCity = () => {
       <PineTree position={[-0.5, 0, -6]} />
       <PineTree position={[-0.8, 0, -5]} />
       <PineTree position={[0.5, 0, -15]} />
-      <ManualControls />
+      <CameraControls />
     </group>
   );
 };

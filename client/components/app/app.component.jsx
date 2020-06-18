@@ -1,6 +1,6 @@
 import React, { Suspense, useState } from 'react';
 import { Canvas } from 'react-three-fiber';
-import { Stats, Stars, Sky, HTML, MapControls } from 'drei';
+import { Stats, Stars, Sky, HTML, MapControls, StandardEffects } from 'drei';
 
 
 import FlipButton from '../flip-button/flip-button.component.jsx';
@@ -28,17 +28,15 @@ const App = () => {
       >
         <fog attach="fog" args={[fogColor, 5, 15]} />
         {/* <color attach="background" args={["#012"]} /> */}
-        
-
         {flipped ? <Stars radius={300} /> : <Sky />}
         <Suspense fallback={null}>
-          <ambientLight />
+          <ambientLight intensity={0.5} />
           <pointLight position={[0, 100, 100]} />
           {/* <MapControls /> */}
           <Stats />
           <Ground />
           <FrontEndCity />
-
+          {/* <StandardEffects /> */}
         </Suspense>
       </Canvas>
     </>
