@@ -4,8 +4,8 @@ import { Canvas, useThree, useFrame } from 'react-three-fiber';
 
 const Ground = () => {     
     const group = useRef()
-    const { camera } = useThree()
-      useFrame(()=> console.log(camera.position))
+    // const { camera } = useThree()
+    //   useFrame(()=> console.log(camera.position))
     // useFrame(() => (group.current.rotation.z  += 0))
 
     return (

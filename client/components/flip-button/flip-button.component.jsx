@@ -1,5 +1,4 @@
 import React from 'react'
-import { HTML } from 'drei'
 
 import './flip-button.style.css'
 
