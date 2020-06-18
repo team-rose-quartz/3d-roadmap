@@ -23,7 +23,7 @@ const Login = () => {
     return (
       <div id="login">
 
-        <a href="/auth/google"><img src="/assets/google_signin.png"></img></a>
+        <a href="/auth/google"><img src="../assets/google_signin.png"></img></a>
 
       </div>
     );
