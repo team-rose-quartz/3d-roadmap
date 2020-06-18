@@ -26,7 +26,7 @@ module.exports = () => {
     module: {
       rules: [
         {
-          test: /\.jsx?$/,
+          test: /\.(js[x]?$|.js)/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
@@ -34,6 +34,14 @@ module.exports = () => {
               presets: ['@babel/preset-env', '@babel/preset-react'],
             },
           },
+        },
+        {
+          test: /\.(gltf)$/,
+          use: [
+            {
+              loader: 'gltf-webpack-loader',
+            },
+          ],
         },
         {
           test: /\.css$/i,
