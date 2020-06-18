@@ -2,10 +2,10 @@
     background-color: rgba(41, 41, 230, 0.842);
     color: rgba(209, 209, 226, 0.897);
     position: absolute;
-    transform: translate3d(-50%, -50%, 0);
     height: 5vh;
-    top: 42.5vh;
+    bottom: 5vh;
     width: 10vw;
-    left: 40vw;
+    left: 5vw;
     font-size: 16px;
+    z-index: 1;
 }

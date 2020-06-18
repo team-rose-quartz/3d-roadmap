@@ -1,45 +1,49 @@
-import React, {Suspense, useState} from 'react';
-import { Canvas, useThree, useFrame } from 'react-three-fiber';
-import { Stats, Stars, Sky, HTML, MapControls } from 'drei'
+import React, { Suspense, useState } from 'react';
+import { Canvas } from 'react-three-fiber';
+import { Stats, Stars, Sky, HTML } from 'drei';
 
-import FlipButton from '../flip-button/flip-button.component.jsx'
-import Ground from '../ground/ground.component.jsx'
+
+import FlipButton from '../flip-button/flip-button.component.jsx';
+import Ground from '../ground/ground.component.jsx';
 import FrontEndCity from '../front-end/front-end-city.component.jsx';
 
-import './app.style.css'
-
+import './app.style.css';
 
 const App = () => {
-  const [flipped, setFlipped] = useState(false)
+  const [flipped, setFlipped] = useState(false);
 
 
   const flip = () => {
-    setFlipped(!flipped)
-  }
+    setFlipped(!flipped);
+  };
+
+  const fogColor = flipped ? 'black' : '#dee5e7';
 
   return (
-    <Canvas       
-    gl={{ logarithmicDepthBuffer: true, alpha: false }}
-    shadowMap
-    camera={{ position: [0, 15, 35] }}>
-    {/* <color attach="background" args={["#012"]} /> */}
-        <FlipButton flip={flip}/>
+    <>
+      <FlipButton flip={flip} />
+      <Canvas
+        gl={{ logarithmicDepthBuffer: true, alpha: false }}
+        shadowMap
+        camera={{ position: [-2, 2, 3] }}
+      >
+        <fog attach="fog" args={[fogColor, 5, 15]} />
+        {/* <color attach="background" args={["#012"]} /> */}
+        
 
-        <Stars radius={300}/>
-        {/* <Sky /> */}
+        {flipped ? <Stars radius={300} /> : <Sky />}
         <Suspense fallback={null}>
-        <ambientLight />
-        <pointLight position={[0, 100, 100]} />
-        <MapControls />
-        <Stats />
-        <Ground />
-        <FrontEndCity />
+          <ambientLight />
+          <pointLight position={[0, 100, 100]} />
+          <Stats />
+          <Ground />
+          <FrontEndCity />
 
         </Suspense>
-    </Canvas>
-  )
+      </Canvas>
+    </>
+  );
+};
 
-}
 
-
-export default App
+export default App;
