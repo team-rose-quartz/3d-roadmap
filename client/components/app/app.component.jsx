@@ -4,21 +4,16 @@ import { Stats, Stars, Sky, HTML, MapControls, StandardEffects } from 'drei';
 
 
 import FlipButton from '../flip-button/flip-button.component.jsx';
-import Ground from '../ground/ground.component.jsx';
-import City from '../city/city.component.jsx';
+
 import Login from '../login/login.component.jsx';
+import World from '../world/world.component.jsx'
 
 import './app.style.css';
 
+
 const App = () => {
   const [flipped, setFlipped] = useState(false);
-
-
-  const flip = () => {
-    setFlipped(!flipped);
-  };
-
-  const fogColor = flipped ? 'black' : '#dee5e7';
+  const flip = () => setFlipped(!flipped)
 
   return (
     <>
@@ -29,16 +24,11 @@ const App = () => {
         shadowMap
         camera={{ position: [-2, 2, 3], fov: 60, far: 20 }}
       >
-        <fog attach="fog" args={[fogColor, 5, 15]} />
-        {/* <color attach="background" args={["#012"]} /> */}
-        {flipped ? <Stars radius={300} /> : <Sky />}
+        <Stats />
+        <ambientLight />
+        <pointLight position={[0, 100, 100]} />
         <Suspense fallback={null}>
-          <ambientLight intensity={0.5} />
-          <pointLight position={[0, 100, 100]} />
-          <Stats />
-          <Ground />
-          <FrontEndCity />
-          {/* <StandardEffects /> */}
+          <World flipped={flipped} />
         </Suspense>
       </Canvas>
     </>
