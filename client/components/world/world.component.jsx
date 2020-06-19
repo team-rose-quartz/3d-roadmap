@@ -115,7 +115,7 @@ const World = ({ flipped }) => {
     <>
       {/* <CameraControls freeze={rotating}/> */}
       {/* { !rotating && <fog attach="fog" args={[fogColor, 5, 15]} />} */}
-      {flipped ? <Stars radius={300} /> : <Sky />}
+      {flipped ? <Stars radius={300} /> : <Sky sunPosition={[100, 10, 0]} />}
       {/* <color attach="background" args={["#012"]} /> */}
       <group ref={group}>
         <CarControls name="frontEnd" locked={rotating || flipped} />
