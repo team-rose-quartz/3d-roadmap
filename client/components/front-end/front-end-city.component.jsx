@@ -1,7 +1,4 @@
 import React, { useRef, useMemo } from 'react';
-import useEventListener from '@use-it/event-listener';
-import { Canvas, useThree, useFrame } from 'react-three-fiber';
-import Car from '../car/car.component.jsx';
 import Road from '../road/road.component.jsx';
 import OfficeFloor from '../office-floor/office-floor.component.jsx';
 import PineTree from '../pine-tree/pine-tree.component.jsx';
@@ -25,9 +22,7 @@ const FrontEndCity = ({top}) => {
   }
 
   return (
-    <group {...data}>
-      {/* <Car position={[0, 0.205, 1]} rotation={[0, Math.PI, 0]} color="red" /> */}
-      
+    <group {...data}>      
       {staticElements}
     </group>
   );

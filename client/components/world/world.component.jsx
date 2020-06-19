@@ -2,7 +2,6 @@ import React, { useState, useMemo, useRef } from 'react'
 import { useFrame } from 'react-three-fiber';
 import { Stats, Stars, Sky, HTML } from 'drei';
 
-import CameraControls from '../camera-manual-controls/camera-manual-controls.component.jsx'
 
 import Ground from '../ground/ground.component.jsx';
 import FrontEndCity from '../front-end/front-end-city.component.jsx';
