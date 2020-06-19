@@ -20,9 +20,9 @@ const City = ({top}) => {
       <PineTree position={[-0.5, 0, -6]} />
       <PineTree position={[-0.8, 0, -5]} />
       <PineTree position={[0.5, 0, -15]} />
-      <OfficeGroup  structure = { structure } />
+      <OfficeGroup structure={ structure } />
     </>
-  ), [])
+  ), [structure])
 
   const data = {
     position: top ? [0,0,0] : [0,-10,0],

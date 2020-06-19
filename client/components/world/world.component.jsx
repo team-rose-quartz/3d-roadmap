@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef } from 'react'
+import React, { useState, useMemo, useRef } from 'react';
 import { useFrame } from 'react-three-fiber';
 import { Stats, Stars, Sky, HTML } from 'drei';
 
