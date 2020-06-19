@@ -13,7 +13,6 @@ import './app.style.css';
 const App = () => {
   const [flipped, setFlipped] = useState(false);
 
-
   const flip = () => {
     setFlipped(!flipped);
   };
@@ -37,7 +36,7 @@ const App = () => {
           <pointLight position={[0, 100, 100]} />
           <Stats />
           <Ground />
-          <FrontEndCity />
+          <City />
           {/* <StandardEffects /> */}
         </Suspense>
       </Canvas>
