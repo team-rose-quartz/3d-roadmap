@@ -304,7 +304,8 @@
                   },
       "28": {                                
                         "name": "CI / CD",
-                        "type": "recommended"                        
+                        "type": "recommended",
+                        "children": []                        
             },
       "29": {                                
                   "name": "Design and Development Principles",
@@ -358,7 +359,8 @@
       }, 
       "205": {                                
             "name": "WebSockets",
-            "type": "orderNotStrict"
+            "type": "orderNotStrict",
+            "children": []
       },  
       "206": {                                
             "name": "Web Servers",

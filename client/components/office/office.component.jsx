@@ -16,7 +16,6 @@ const Office = ({ count, z, x, text, floors }) => {
       <HTML>{text}</HTML>
       {office}
     </group>
-
   );
 };
 

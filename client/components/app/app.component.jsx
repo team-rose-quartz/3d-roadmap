@@ -22,7 +22,7 @@ const App = () => {
       <Canvas
         gl={{ logarithmicDepthBuffer: true, alpha: false }}
         shadowMap
-        camera={{ position: [-2, 2, 3]}}
+        camera={{ position: [-2, 2, 3] }}
       >
         <Stats />
         <ambientLight />

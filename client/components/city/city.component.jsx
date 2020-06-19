@@ -1,17 +1,12 @@
-import React, { useRef, useMemo, useState, useEffect } from 'react';
+import React, {
+  useRef, useMemo, useState, useEffect,
+} from 'react';
 import Road from '../road/road.component.jsx';
 import OfficeGroup from '../office-group/office-group.component.jsx';
 import PineTree from '../pine-tree/pine-tree.component.jsx';
-import GetSpecialistArray from '../../Data/dataLoader.js'
 
 
-const City = ({top}) => {
-
-  const [structure, setStructure] = useState([]);
-
-  useEffect(() => {
-    setStructure(GetSpecialistArray());
-  }, [])
+const City = ({ top, structure }) => {
 
   const staticElements = useMemo(() => (
     <>
@@ -20,17 +15,17 @@ const City = ({top}) => {
       <PineTree position={[-0.5, 0, -6]} />
       <PineTree position={[-0.8, 0, -5]} />
       <PineTree position={[0.5, 0, -15]} />
-      <OfficeGroup structure={ structure } />
+      <OfficeGroup structure={structure} />
     </>
-  ), [structure])
+  ), [structure]);
 
   const data = {
-    position: top ? [0,0,0] : [0,-10,0],
-    rotation: top ? [0,0,0] : [Math.PI,Math.PI,0]
-  }
+    position: top ? [0, 0, 0] : [0, -10, 0],
+    rotation: top ? [0, 0, 0] : [Math.PI, Math.PI, 0],
+  };
 
   return (
-    <group {...data}>      
+    <group {...data}>
       {staticElements}
     </group>
   );
