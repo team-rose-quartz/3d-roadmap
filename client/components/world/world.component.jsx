@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, { useState, useMemo, useRef, useEffect } from 'react';
+=======
+import React, { useState, useMemo, useRef } from 'react';
+>>>>>>> 1fa5c0f804f10b3a9b9726813f01424f0626ee43
 import { useFrame } from 'react-three-fiber';
 import {
   Stats, Stars, Sky, HTML,
