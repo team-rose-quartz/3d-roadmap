@@ -22,11 +22,7 @@ const App = () => {
       <Canvas
         gl={{ logarithmicDepthBuffer: true, alpha: false }}
         shadowMap
-<<<<<<< HEAD
         camera={{ position: [-2, 2, 3] }}
-=======
-        camera={{ position: [-2, 2, 3]}}
->>>>>>> 1fa5c0f804f10b3a9b9726813f01424f0626ee43
       >
         <Stats />
         <ambientLight />
