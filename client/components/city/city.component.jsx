@@ -1,60 +1,37 @@
-import React, { useState, useEffect } from 'react';
-import useEventListener from '@use-it/event-listener';
-import { Canvas, useThree, useFrame } from 'react-three-fiber';
-import { HTML } from 'drei';
-
+import React, { useRef, useMemo, useState, useEffect } from 'react';
 import Road from '../road/road.component.jsx';
 import OfficeGroup from '../office-group/office-group.component.jsx';
 import PineTree from '../pine-tree/pine-tree.component.jsx';
-import CarControls from '../car/CarControls.jsx';
-
-import GetSpecialistArray from '../../Data/dataLoader';
-
-const CameraControls = (props) => {
-  const { camera } = useThree();
-  const keyPresses = {};
-  const handleKeyDown = (e) => {
-    if (!keyPresses[e.key]) {
-      keyPresses[e.key] = new Date().getTime();
-    }
-  };
-  const handleKeyUp = (e) => {
-    delete keyPresses[e.key];
-  };
-  useEventListener('keydown', handleKeyDown);
-  useEventListener('keyup', handleKeyUp);
-  useFrame(() => {
-    // move camera according to key pressed
-    Object.entries(keyPresses).forEach((e) => {
-      const [key, start] = e;
-      switch (key) {
-        case 'w': camera.position.z -= 0.1; break;
-        case 's': camera.position.z += 0.1; break;
-        case 'Escape': camera.position.y = 0; camera.position.x = 0; camera.position.z = 5; break;
-        default:
-      }
-    });
-  });
-  return null;
-};
+import GetSpecialistArray from '../../Data/dataLoader.js'
 
 
-const City = () => {
+const City = ({top}) => {
+
   const [structure, setStructure] = useState([]);
+
   useEffect(() => {
     setStructure(GetSpecialistArray());
-  }, []);
-  return (
-    <group>
-      {/* <Car position={[0, 0.205, 1]} rotation={[0, Math.PI, 0]} color="red" /> */}
-      <CarControls />
+  }, [])
+
+  const staticElements = useMemo(() => (
+    <>
       <Roads count={85} />
-      <OfficeGroup structure={structure} />
       <PineTree position={[0.5, 0, -2]} />
       <PineTree position={[-0.5, 0, -6]} />
       <PineTree position={[-0.8, 0, -5]} />
       <PineTree position={[0.5, 0, -15]} />
-      <CameraControls />
+      <OfficeGroup structure={ structure } />
+    </>
+  ), [structure])
+
+  const data = {
+    position: top ? [0,0,0] : [0,-10,0],
+    rotation: top ? [0,0,0] : [Math.PI,Math.PI,0]
+  }
+
+  return (
+    <group {...data}>      
+      {staticElements}
     </group>
   );
 };
