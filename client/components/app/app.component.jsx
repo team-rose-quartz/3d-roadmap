@@ -37,7 +37,7 @@ const App = () => {
           <pointLight position={[0, 100, 100]} />
           <Stats />
           <Ground />
-          <FrontEndCity />
+          <City />
           {/* <StandardEffects /> */}
         </Suspense>
       </Canvas>
