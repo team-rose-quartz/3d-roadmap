@@ -19,7 +19,7 @@ export default function Model(props) {
         <mesh material={materials.Clouds} geometry={nodes.Sphere1.geometry} position={[0.02, 0.05, 0.01]} />
         <mesh material={materials.Clouds} geometry={nodes.Sphere2.geometry} position={[-0.03, 0, 0.28]} />
       </group>
-      <group position={[2.44, -0.56, -2.55]} rotation={[0, 1.57, 0]}>
+      <group position={[2.44, -0.56, -85]} rotation={[0, 1.57, 0]}>
         <mesh material={materials.Clouds} geometry={nodes.Sphere1.geometry} position={[0.01, 0.04, 0.01]} />
         <mesh material={materials.Clouds} geometry={nodes.Sphere2.geometry} position={[-0.02, 0, 0.2]} />
       </group>

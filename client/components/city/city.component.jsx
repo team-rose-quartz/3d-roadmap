@@ -1,34 +1,37 @@
-import React, {useMemo} from 'react';
+import React, { useMemo } from 'react';
 
 import Road from '../road/road.component.jsx';
 import OfficeGroup from '../office-group/office-group.component.jsx';
 import PineTree from '../pine-tree/pine-tree.component.jsx';
-import Tree from '../tree/tree.component.jsx'
-import Flower from '../flower/flower.component.jsx'
-import Clouds from '../clouds/clouds.component.jsx'
+import Tree from '../tree/tree.component.jsx';
+import TreeGroup from '../tree-group/tree-group.component.jsx';
+import Flower from '../flower/flower.component.jsx';
+import Clouds from '../clouds/clouds.component.jsx';
 // import One  from '../one-floor-building/one-floor-building.component.jsx'
 // import Two  from '../two-floor-building/two-floor-building.component.jsx'
 // import Three  from '../three-floor-building/three-floor-building.component.jsx'
 
 const City = ({ side, structure }) => {
-  const top = side === 'frontend'
-  console.log(side)
+  const top = side === 'frontend';
+  console.log(side);
   // Cache elements so they are only rerendered when structure changes
   const staticElements = useMemo(() => (
     <>
+      <Clouds position={[0, 2, 0]} />
       <Roads count={85} />
-      <PineTree position={[0.5, 0, -2]} />
+      {/* <PineTree position={[0.5, 0, -2]} />
       <PineTree position={[-0.5, 0, -6]} />
       <PineTree position={[-0.8, 0, -5]} />
-      <PineTree position={[0.5, 0, -15]} />
-      <Tree position={[0.5, 0, -5]}/>
-      <Flower position={[1, 0, -5]}/>
-      <OfficeGroup  structure = { structure }  />
+      <PineTree position={[0.5, 0, -15]} /> */}
+      <TreeGroup side="right" />
+      <TreeGroup side="left" />
+      <Flower position={[1, 0, -5]} />
+      <OfficeGroup structure={structure} />
       {/* <One position={[0.5, 0, -15]}/>
       <Two position={[0.5, 0, -5]}/>
       <Three position={[0.5, 0, -2]}/> */}
     </>
-  ), [structure])
+  ), [structure]);
 
   const data = {
     position: top ? [0, 0, 0] : [0, -10, 0],
