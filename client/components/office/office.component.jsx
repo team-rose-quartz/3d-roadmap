@@ -1,10 +1,7 @@
 import React, { useState, useRef } from 'react';
 import { HTML, Text } from 'drei';
-import OfficeFloor from '../office-floor-a/office-floor-a.component.jsx';
-import OneFloorBuilding from '../one-floor-building/one-floor-building.component.jsx'
-import TwoFloorBuilding from '../two-floor-building/two-floor-building.component.jsx'
-import ThreeFloorBuilding from '../three-floor-building/three-floor-building.component.jsx'
-import { useFrame } from 'react-three-fiber';
+import OfficeFloor from '../office-floor/office-floor.component.jsx';
+
 
 const Office = ({ count, z, x, text, floors }) => {
   const [hovered, setHover] = useState(false)

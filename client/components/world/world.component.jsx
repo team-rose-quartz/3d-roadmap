@@ -78,7 +78,6 @@ const World = ({ flipped }) => {
 
     const fractions = (ROTATIONS+rotation)/(ROTATIONS * (rotation/10+1))
 
-    console.log(fractions)
 
     return (
         <>
@@ -109,7 +108,7 @@ const World = ({ flipped }) => {
             <group ref={group}>
                 <CarControls name="frontend" side={'frontend'} locked={rotating || flipped} />
                 <CarControls name="backend" side={'backend'} locked={rotating || !flipped} />
-                <Ground />
+                {ground}
                 <City side={'frontend'} structure={structure[0]} />
                 <City side={'backend'} structure={structure[1]} />
             </group>

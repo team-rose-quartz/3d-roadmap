@@ -5,7 +5,7 @@ import OfficeGroup from '../office-group/office-group.component.jsx';
 import TreeGroup from '../tree-group/tree-group.component.jsx';
 import Flower from '../flower/flower.component.jsx';
 import Clouds from '../clouds/clouds.component.jsx';
-import Ramen from '../ramen/ramen.component.jsx'
+// import Ramen from '../ramen/ramen.component.jsx'
 
 const City = ({ side, structure }) => {
   const top = side === 'frontend';
@@ -14,12 +14,12 @@ const City = ({ side, structure }) => {
   const staticElements = useMemo(() => (
     <>
       <Clouds position={[0, 2, 0]} />
+      {/* <Ramen position={[0,0,-200]} scale={[.6,.6,.6]}/> */}
       <Roads count={92} />
       <TreeGroup side="right" />
       <TreeGroup side="left" />
       <Flower position={[1, 0, -5]} />
       <OfficeGroup structure={structure} />
-      <Ramen position={[0,0,-200]} scale={[.6,.6,.6]}/>
     </>
   ), [structure]);
 
