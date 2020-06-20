@@ -1,6 +1,8 @@
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, {
+  useState, useMemo, useRef, useEffect,
+} from 'react';
 import { useFrame } from 'react-three-fiber';
-import {Stars, Sky} from 'drei';
+import { Stars, Sky } from 'drei';
 
 
 import Ground from '../ground/ground.component.jsx';
@@ -72,50 +74,45 @@ const World = ({ flipped }) => {
         }
       }
     }
-})
+  });
 
-    const ground = useMemo(() => (<Ground />), [])
+  const ground = useMemo(() => (<Ground />), []);
 
-    const fractions = (ROTATIONS+rotation)/(ROTATIONS * (rotation/10+1))
+  const fractions = (ROTATIONS + rotation) / (ROTATIONS * (rotation / 10 + 1));
 
-    console.log(fractions)
 
-    return (
+  return (
+    <>
+    
+      { !rotating && flipped && <fog attach="fog" args={[fogColor, 5, 10]} />}
+
+      {(rotating || !flipped)
+        && (
         <>
-            { !rotating && flipped && <fog attach="fog" args={[fogColor, 5, 10]} />}
-            
-            {(rotating || !flipped) &&     
-                <>
-                    <ambientLight intensity={fractions * 0.4} /> 
-                    <pointLight position={[0, 100, 0]} intensity={fractions*.5}  />
-                    <directionalLight
-                        castShadow
-                        position={[300, 100, -200]}
-                        intensity={fractions*1.2}
-                        shadow-bias={-0.0005}
-                        shadow-camera-left={-10}
-                        shadow-camera-right={10}
-                        shadow-camera-top={-10}
-                        shadow-camera-bottom={-10}
-                        color={"#fae8c8"}
-                    />
-                    <pointLight position={[300, 100, 200]} intensity={fractions*.8} color={"#e6f6fc"} />   
-                </>
-            }
-
-            {(!flipped ||rotating) ? <Sky sunPosition={[(fractions*1000)-400, ((fractions* 60)), -400]}/> : <Stars radius={300} /> }
-            {/* {(!flipped ||rotating) ? <Sky sunPosition={[(fractions*250)-250, ((fractions*-20)+40), -400]}/> : <Stars radius={300} /> } */}
-
-            <group ref={group}>
-                <CarControls name="frontend" side={'frontend'} locked={rotating || flipped} />
-                <CarControls name="backend" side={'backend'} locked={rotating || !flipped} />
-                <Ground />
-                <City side={'frontend'} structure={structure[0]} />
-                <City side={'backend'} structure={structure[1]} />
-            </group>
+          <ambientLight intensity={fractions * 0.4} />
+          <pointLight position={[0, 100, 0]} intensity={fractions * 0.5} />
+          {/* <directionalLight
+            castShadow
+            position={[300, 100, -200]}
+            intensity={fractions * 1.2}
+            shadow-bias={-0.0005}
+            color="#fae8c8"
+          /> */}
+          <pointLight position={[300, 100, 200]} intensity={fractions * 0.8} color="#e6f6fc" />
         </>
-    )
-}
+        )}
+
+      {(!flipped || rotating) ? <Sky sunPosition={[(fractions * 1000) - 400, ((fractions * 60)), -400]} /> : <Stars radius={300} /> }
+      <group ref={group}>
+        <CarControls name="frontend" side="frontend" locked={rotating || flipped} />
+        <CarControls name="backend" side="backend" locked={rotating || !flipped} />
+        <Ground />
+        <City side="frontend" structure={structure[0]} />
+        <City side="backend" structure={structure[1]} />
+      </group>
+    </>
+  );
+};
 
 
-export default World
+export default World;
