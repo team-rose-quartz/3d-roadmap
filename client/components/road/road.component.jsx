@@ -10,7 +10,7 @@ export default function Model(props) {
   const { nodes, materials } = useLoader(GLTFLoader, model)
   return (
     <group ref={group} {...props} dispose={null}>
-      <mesh material={materials.Black} geometry={nodes.Asphalt.geometry} />
+      <mesh receiveShadow material={materials.Black} geometry={nodes.Asphalt.geometry} />
       <mesh material={materials.White} geometry={nodes.Stripes.geometry} />
     </group>
   )

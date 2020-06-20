@@ -16,7 +16,7 @@ const treeGen = (treeType, side) => {
             key={`${i}Tree`}
             position={
               [
-                side === 'right' ? randomNum(0.5, 1.5) : randomNum(0.5, 1.5) * -1,
+                side === 'right' ? randomNum(0.5, 20) : randomNum(0.5, 20) * -1,
                 0,
                 -1 * (randomNum(i * 4, (i + 1) * 4) + 2),
               ]
@@ -48,7 +48,7 @@ const flowerGen = (side) => {
         key={`${i}Flower`}
         position={
           [
-            side === 'right' ? randomNum(0.5, 1.5) : randomNum(0.5, 1.5) * -1,
+            side === 'right' ? randomNum(0.5, 20) : randomNum(0.5, 20) * -1,
             0,
             -1 * (randomNum(i * 4, (i + 1) * 4) + 2),
           ]
