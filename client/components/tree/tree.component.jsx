@@ -15,9 +15,9 @@ export default function Model(props) {
   return (
     <group ref={group} {...props} dispose={null}>
       <group position={[-0.01, 0.66, -0.01]} scale={[0.84, 0.84, 0.84]}>
-        <mesh material={materials.Trunk} geometry={nodes.Cylinder.geometry} position={[0, -0.47, 0]} />
+        <mesh castShadow material={materials.Trunk} geometry={nodes.Cylinder.geometry} position={[0, -0.47, 0]} />
       </group>
-      <mesh material={materials.Tree} geometry={nodes.Leaves.geometry} position={[-0.01, 0.59, -0.01]} />
+      <mesh castShadow material={materials.Tree} geometry={nodes.Leaves.geometry} position={[-0.01, 0.59, -0.01]} />
     </group>
   )
 }
