@@ -14,6 +14,7 @@ const Office = ({
   //   (group.current.rotation.y = group.current.rotation.y += 0.01)
   // })
 
+
   const office = [];
   for (let x = 0; x < count; x++) {
     office.push(<OfficeFloor
