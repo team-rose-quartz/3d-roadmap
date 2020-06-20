@@ -48,7 +48,6 @@ const World = ({flipped}) => {
 
 
 
-    console.log('flipped', flipped)
 
 
     const fogColor = flipped ? 'black' : '#dee5e7';
@@ -106,12 +105,12 @@ const World = ({flipped}) => {
     })
 
     const ground = useMemo(() => (<Ground />), [])
+    console.log((ROTATIONS-rotation)/(ROTATIONS))
 
     return (
         <>
-            {/* <CameraControls freeze={rotating}/> */}
             {/* { !rotating && <fog attach="fog" args={[fogColor, 5, 15]} />} */}
-            {flipped ? <Stars radius={300} /> : <Sky />}
+            {flipped ? <Stars radius={300} /> : <Sky sunPosition={[10, (ROTATIONS-rotation)/(ROTATIONS)*5, 0]} />}
             {/* <color attach="background" args={["#012"]} /> */}
             <group ref={group}>  
                 <CarControls name={"frontEnd"} locked={rotating || flipped}/>

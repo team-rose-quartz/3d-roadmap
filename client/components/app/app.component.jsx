@@ -20,13 +20,17 @@ const App = () => {
       <Login />
       <FlipButton flip={flip} />
       <Canvas
-        gl={{ logarithmicDepthBuffer: true, alpha: false }}
+        // gl={{ logarithmicDepthBuffer: true, alpha: false }}
         shadowMap
-        camera={{ position: [-2, 2, 3], fov: 60, far: 20 }}
+        camera={{ position: [-2, 2, 3]}}
+        // camera={{ position: [-2, 2, 3], fov: 60, far: 20 }}
       >
         <Stats />
-        <ambientLight />
-        <pointLight position={[0, 100, 100]} />
+        {/* <ambientLight intensity={0.1} /> */}
+        <pointLight position={[1, 0.25, 0]} distance={1} intensity={2}/>
+        <pointLight position={[-1, 0.25, -20]} />
+        {/* <pointLight position={[100, 100, -10]} /> */}
+        {/* <pointLight position={[-10, -10, -5]} /> */}
         <Suspense fallback={null}>
           <World flipped={flipped} />
         </Suspense>

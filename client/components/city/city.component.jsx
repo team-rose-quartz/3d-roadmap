@@ -3,7 +3,12 @@ import Road from '../road/road.component.jsx';
 import OfficeGroup from '../office-group/office-group.component.jsx';
 import PineTree from '../pine-tree/pine-tree.component.jsx';
 import GetSpecialistArray from '../../Data/dataLoader.js'
-
+import Tree from '../tree/tree.component.jsx'
+import Flower from '../flower/flower.component.jsx'
+import Clouds from '../clouds/clouds.component.jsx'
+import One  from '../one-floor-building/one-floor-building.component.jsx'
+import Two  from '../two-floor-building/two-floor-building.component.jsx'
+import Three  from '../three-floor-building/three-floor-building.component.jsx'
 
 const City = ({top}) => {
 
@@ -20,9 +25,14 @@ const City = ({top}) => {
       <PineTree position={[-0.5, 0, -6]} />
       <PineTree position={[-0.8, 0, -5]} />
       <PineTree position={[0.5, 0, -15]} />
-      <OfficeGroup  structure = { structure } />
+      <Tree position={[0.5, 0, -5]}/>
+      <Flower position={[1, 0, -5]}/>
+      <OfficeGroup  structure = { structure }  />
+      <One position={[0.5, 0, -15]}/>
+      <Two position={[0.5, 0, -5]}/>
+      <Three position={[0.5, 0, -2]}/>
     </>
-  ), [])
+  ), [structure])
 
   const data = {
     position: top ? [0,0,0] : [0,-10,0],
@@ -32,6 +42,8 @@ const City = ({top}) => {
   return (
     <group {...data}>      
       {staticElements}
+/>
+
     </group>
   );
 };

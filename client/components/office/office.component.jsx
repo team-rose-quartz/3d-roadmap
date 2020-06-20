@@ -1,6 +1,6 @@
 import React from 'react';
 import { HTML } from 'drei';
-import OfficeFloor from '../office-floor/office-floor.component.jsx';
+import OfficeFloor from '../office-floor-a/office-floor-a.component.jsx';
 
 const Office = ({ count, z, x, text, floors }) => {
   const office = [];
@@ -8,6 +8,7 @@ const Office = ({ count, z, x, text, floors }) => {
     office.push(<OfficeFloor
       key={x}
       position={[0, x * 0.2, 0]}
+      // position={[0, x * 0.3, 0]}
       floor={floors[x]}
     />);
   }
