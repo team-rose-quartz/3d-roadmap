@@ -1,6 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { HTML, Text } from 'drei';
-import OfficeFloor from '../office-floor/office-floor.component.jsx';
+import OfficeFloor from '../office-floor-a/office-floor-a.component.jsx';
 import { useFrame } from 'react-three-fiber';
 
 const Office = ({ count, z, x, text, floors }) => {
@@ -17,12 +17,14 @@ const Office = ({ count, z, x, text, floors }) => {
     office.push(<OfficeFloor
       key={x}
       position={[0, x * 0.2, 0]}
+      // position={[0, x * 0.3, 0]}
       floor={floors[x]}
       hovered={hovered}
     />);
   }
   return (
     <group  onPointerOver={hover} onPointerOut={unhover} position={[x, 0.15, z]} scale={[0.8, 1, 0.8]}>
+      
       <Text
       ref={group}
         fontSize={0.25}

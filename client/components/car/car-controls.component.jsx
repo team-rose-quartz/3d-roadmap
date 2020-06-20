@@ -4,21 +4,22 @@ import { useFrame } from 'react-three-fiber';
 import Car from './car.component.jsx';
 
 
-const CarControls = ({name, locked}) => {
+const CarControls = ({side, locked}) => {
   const group = useRef();
   const keyPresses = {};
+
   const handleKeyDown = (e) => {
     if (!keyPresses[e.key]) {
       keyPresses[e.key] = new Date().getTime();
     }
   };
+
   const handleKeyUp = (e) => {
     delete keyPresses[e.key];
   };
+
   useEventListener('keydown', handleKeyDown);
   useEventListener('keyup', handleKeyUp);
-
-
 
   
   useFrame(() => {
@@ -39,35 +40,27 @@ const CarControls = ({name, locked}) => {
     });
   });
 
-  // if(setCar && group.current) {
-  //   console.log('weeee')
-  //   setCar({
-  //     ...car,
-  //     x: group.current.position.x,
-  //     y: group.current.position.y,
-  //     z: group.current.position.z,
-  //   })
-  // }
 
-  const position = name === "frontEnd" ? [0, 0.205, 1] : [0, -10.205, 1]
 
   const frontEnd = {
     position: [0, 0.205, 1],
     rotation: [0, Math.PI, 0],
-    color: 'red'
+    color: 'red',
+    side
   }
 
 
   const backEnd = {
     position: [0, -10.205, 1],
     rotation: [Math.PI, 0, 0],
-    color: 'red'
+    color: 'red',
+    side
   }
 
-  const data = name === "frontEnd" ? frontEnd : backEnd
+  const data = side === "frontend" ? frontEnd : backEnd
 
   return (
-    <group ref={group} name={name}>
+    <group ref={group} name={side}>
       <Car {...data} />
     </group>
   )

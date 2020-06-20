@@ -195,7 +195,8 @@
 				"NORMAL":12,
 				"TEXCOORD_0":13
 			},
-			"indices":10
+			"indices":10,
+			"material":1
 		}]
 	},
 	{
@@ -593,19 +594,19 @@
 	},
 	{
 		"pbrMetallicRoughness":{
-			"baseColorFactor":[0.9035532994923858,
-			0.45406993223221428,
-			0.5889149424102661,
+			"baseColorFactor":[0.5413157648395343,
+			0.1925393363017907,
+			0.8900921933772779,
 			1.0],
 			"metallicFactor":1.0,
 			"roughnessFactor":1.0
 		},
-		"emissiveFactor":[0.6583181313451777,
-		0.15149984597858769,
-		0.4893787028896478],
+		"emissiveFactor":[0.378921035387674,
+		0.1347775354112535,
+		0.6230645353640946],
 		"alphaMode":"OPAQUE",
 		"doubleSided":true,
-		"name":"Red"
+		"name":"Purple"
 	},
 	{
 		"pbrMetallicRoughness":{
@@ -654,5 +655,21 @@
 		"alphaMode":"OPAQUE",
 		"doubleSided":true,
 		"name":"White"
+	},
+	{
+		"pbrMetallicRoughness":{
+			"baseColorFactor":[0.5426576309618902,
+			0.5545427606998374,
+			0.6852791878172588,
+			1.0],
+			"metallicFactor":1.0,
+			"roughnessFactor":1.0
+		},
+		"emissiveFactor":[0.3657914401298669,
+		0.3689960232592097,
+		0.46192893401015236],
+		"alphaMode":"OPAQUE",
+		"doubleSided":true,
+		"name":"Light Grey"
 	}]
 }
