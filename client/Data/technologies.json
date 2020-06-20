@@ -68,7 +68,8 @@
            "descriptions": "with modern frameworks and CSS-in-JS you don't have to worry about these anymore but still it would be a good idea to get familiarized with BEM atleast",
            "children": [
                  { "name": "BEM", "type": "orderNotStrict" },
-                 { "name": "yarn", "type": "notRecommended" }                 
+                 { "name": "OOCSS", "type": "notRecommended" },                 
+                 { "name": "SMACSS", "type": "notRecommended" }
              ]
         }, 
   "19": {        
@@ -223,7 +224,7 @@
        },            
 
   "20": {              
-              "name": "Basic Fronted Knowledge",
+              "name": "Basic Frontend Knowledge",
               "children": [
                 { "name": "HTML", "type": "recommended" },
                 { "name": "CSS", "type": "recommended" },
