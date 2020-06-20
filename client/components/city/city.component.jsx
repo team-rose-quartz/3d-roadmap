@@ -2,14 +2,10 @@ import React, { useMemo } from 'react';
 
 import Road from '../road/road.component.jsx';
 import OfficeGroup from '../office-group/office-group.component.jsx';
-import PineTree from '../pine-tree/pine-tree.component.jsx';
-import Tree from '../tree/tree.component.jsx';
 import TreeGroup from '../tree-group/tree-group.component.jsx';
 import Flower from '../flower/flower.component.jsx';
 import Clouds from '../clouds/clouds.component.jsx';
-// import One  from '../one-floor-building/one-floor-building.component.jsx'
-// import Two  from '../two-floor-building/two-floor-building.component.jsx'
-// import Three  from '../three-floor-building/three-floor-building.component.jsx'
+import Ramen from '../ramen/ramen.component.jsx'
 
 const City = ({ side, structure }) => {
   const top = side === 'frontend';
@@ -18,18 +14,12 @@ const City = ({ side, structure }) => {
   const staticElements = useMemo(() => (
     <>
       <Clouds position={[0, 2, 0]} />
-      <Roads count={85} />
-      {/* <PineTree position={[0.5, 0, -2]} />
-      <PineTree position={[-0.5, 0, -6]} />
-      <PineTree position={[-0.8, 0, -5]} />
-      <PineTree position={[0.5, 0, -15]} /> */}
+      <Roads count={92} />
       <TreeGroup side="right" />
       <TreeGroup side="left" />
       <Flower position={[1, 0, -5]} />
       <OfficeGroup structure={structure} />
-      {/* <One position={[0.5, 0, -15]}/>
-      <Two position={[0.5, 0, -5]}/>
-      <Three position={[0.5, 0, -2]}/> */}
+      <Ramen position={[0,0,-200]} scale={[.6,.6,.6]}/>
     </>
   ), [structure]);
 
@@ -48,8 +38,14 @@ const City = ({ side, structure }) => {
 const Roads = ({ count }) => {
   const roads = [];
   for (let x = 0; x < count; x++) {
-    roads.push(<Road key={x} position={[0, 0, (x - 1) * -2.28]} />);
+    roads.push(<Road key={x} position={[0, 0, (x - 1) * -2.2]} />);
   }
+  roads.push(
+    <mesh position={[0,0, (-2.2 *count)/2 + 3.3]} key={'road'}>
+      <meshStandardMaterial attach="material" color={"#4e4e59"} />
+      <boxBufferGeometry attach="geometry" args={[.5, .05, 2.2 * count]} />
+    </mesh>
+  )
   return roads;
 };
 
