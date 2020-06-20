@@ -16,7 +16,8 @@ const City = ({ side, structure }) => {
   // Cache elements so they are only rerendered when structure changes
   const staticElements = useMemo(() => (
     <>
-      <Roads count={85} />
+      <Roads count={90} />
+
       <PineTree position={[0.5, 0, -2]} />
       <PineTree position={[-0.5, 0, -6]} />
       <PineTree position={[-0.8, 0, -5]} />
@@ -45,8 +46,14 @@ const City = ({ side, structure }) => {
 const Roads = ({ count }) => {
   const roads = [];
   for (let x = 0; x < count; x++) {
-    roads.push(<Road key={x} position={[0, 0, (x - 1) * -2.28]} />);
+    roads.push(<Road key={x} position={[0, 0, (x - 1) * -2.2]} />);
   }
+  roads.push(
+    <mesh position={[0,0, (-2.2 *count)/2 + 3.3]} key={'road'}>
+      <meshStandardMaterial attach="material" color={"#4e4e59"} />
+      <boxBufferGeometry attach="geometry" args={[.5, .05, 2.2 * count]} />
+    </mesh>
+  )
   return roads;
 };
 
