@@ -6,9 +6,9 @@ const Ground = () => {
 
     return (
         <group ref={group}>
-            <mesh position={[0,-5,-96.5]}>
+            <mesh position={[0,-5,-96.5]} castShadow recieveShadow>
                 <cylinderBufferGeometry attach="geometry" args={[100,100,10,100]} />
-                <meshStandardMaterial attach="material" color={'#607049'}/>
+                <meshPhongMaterial attach="material" color={'#465c45'}/>
             </mesh>
         </group>
     )
