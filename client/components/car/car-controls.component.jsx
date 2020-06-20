@@ -29,10 +29,10 @@ const CarControls = ({side, locked}) => {
     Object.entries(keyPresses).forEach((e) => {
       const [key] = e;
       switch (key) {
-        case 'w': 
+        case 'ArrowUp': 
           group.current.position.z -= 0.1; 
           break;
-        case 's': 
+        case 'ArrowDown': 
           group.current.position.z += 0.1; 
           break;
         default:
